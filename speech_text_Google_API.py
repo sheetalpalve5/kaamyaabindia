@@ -6,6 +6,7 @@ Created on Sat May 30 12:05:10 2020
 """
 
 import speech_recognition as sr
+from playsound import playsound
 
 #%%
 '''
@@ -17,6 +18,8 @@ import speech_recognition as sr
 '''
 
 #%%
+
+playsound('beep.wav') 
 
 def recognize_speech_from_mic(recognizer, microphone):
     """Transcribe speech from recorded from `microphone`.
@@ -30,6 +33,7 @@ def recognize_speech_from_mic(recognizer, microphone):
                otherwise a string containing the transcribed text
     """
     # check that recognizer and microphone arguments are appropriate type
+    
     if not isinstance(recognizer, sr.Recognizer):
         raise TypeError("`recognizer` must be `Recognizer` instance")
 

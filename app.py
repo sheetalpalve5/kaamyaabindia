@@ -15,13 +15,15 @@ import googletrans
 from googletrans import Translator
 translator = Translator()
 
+import pyodbc
+
 from tkinter import *
 
 import tkinter as tk
 top = tk.Tk()
 # Code to add widgets will go here...
 top.title("Form Filling GUI")
-top.geometry('500x400')
+top.geometry('1000x8000')
 #label = tk.Label(top, text = "Welcome to DataCamp's Tutorial on Tkinter!").pack()
 
 
@@ -33,8 +35,9 @@ button.grid(row=2, column =5)
 fn = []
 def clicked():
     
-    #playsound('file_example_WAV_1MG.wav') 
+    playsound('AUD-20200602-WA0019.wav') 
     a1 = subprocess.check_output([sys.executable, "speech_text_Google_API.py"])
+    
     print(a1)
     a1 = a1.decode('utf-8')
     fn.append(a1.replace('\r\n',''))
@@ -54,7 +57,7 @@ button.grid(row=8, column =5)
 mn= []
 def clicked1():
     
-    #playsound('file_example_WAV_1MG.wav') 
+    playsound('AUD-20200602-WA0019.wav')  
     a2 = subprocess.check_output([sys.executable, "speech_text_Google_API.py"])
     print(a2)
     a2 = a2.decode('utf-8')
@@ -74,7 +77,7 @@ button = tk.Button(top, text='Click', width=15, bg="orange", fg="black", command
 button.grid(row=14, column =5)
 ln = []
 def clicked2():
-    #playsound('file_example_WAV_1MG.wav') 
+    playsound('AUD-20200602-WA0019.wav') 
     a = subprocess.check_output([sys.executable, "speech_text_Google_API.py"])
     print(a)
     a = a.decode('utf-8')
@@ -138,7 +141,7 @@ button = tk.Button(top, text='Click', width=15, bg="orange", fg="black", command
 button.grid(row=28, column =5)
 ed= []
 def clicked3():
-    #playsound('file_example_WAV_1MG.wav') 
+    playsound('AUD-20200602-WA0019.wav') 
     a2 = subprocess.check_output([sys.executable, "speech_text_Google_API.py"])
     print(a2)
     a2 = a2.decode('utf-8')
@@ -160,7 +163,7 @@ button = tk.Button(top, text='Click', width=15, bg="orange", fg="black", command
 button.grid(row=32, column =5)
 ps= []
 def clicked4():
-    #playsound('file_example_WAV_1MG.wav') 
+    playsound('AUD-20200602-WA0019.wav') 
     a2 = subprocess.check_output([sys.executable, "speech_text_Google_API.py"])
     print(a2)
     a2 = a2.decode('utf-8')
@@ -182,7 +185,7 @@ button = tk.Button(top, text='Click', width=15, bg="orange", fg="black", command
 button.grid(row=36, column =5)
 ss= []
 def clicked5():
-    #playsound('file_example_WAV_1MG.wav') 
+    playsound('AUD-20200602-WA0019.wav') 
     a2 = subprocess.check_output([sys.executable, "speech_text_Google_API.py"])
     print(a2)
     a2 = a2.decode('utf-8')
@@ -203,7 +206,7 @@ button = tk.Button(top, text='Click', width=15, bg="orange", fg="black", command
 button.grid(row=40, column =5)
 ad = []
 def clicked6():
-    #playsound('file_example_WAV_1MG.wav') 
+    playsound('AUD-20200602-WA0019.wav')  
     a = subprocess.check_output([sys.executable, "speech_text_Google_API.py"])
     print(a)
     ad.append(a)
@@ -219,7 +222,7 @@ button = tk.Button(top, text='Click', width=15, bg="orange", fg="black", command
 button.grid(row=44, column =5)
 mn = []
 def clicked7():
-    #playsound('file_example_WAV_1MG.wav') 
+    playsound('AUD-20200602-WA0019.wav') 
     a = subprocess.check_output([sys.executable, "speech_text_Google_API.py"])
     print(a)
     mn.append(a)
@@ -234,14 +237,19 @@ button = tk.Button(top, text='Click', width=15, bg="orange", fg="black", command
 button.grid(row=48, column =5)
 db = []
 def clicked8():
-    #playsound('file_example_WAV_1MG.wav') 
+    playsound('AUD-20200602-WA0019.wav') 
     a = subprocess.check_output([sys.executable, "speech_text_Google_API.py"])
     print(a)
     db.append(a)
     res = tk.Label(top, text = a, wraplength=1500)
     res.grid(row = 50, column = 1)
     
-d = {'FIRST_NAME' :fn,'MIDDLE_NAME' : mn, 'LAST_NAME' : ln,'GENDER' : gn,
+    
+button = tk.Button(top, text='Submit Details', width=15, bg="orange", fg="black", command = lambda: clicked9()) #, command=m.destroy
+button.grid(row=50, column = 7)
+
+def clicked9():
+    d = {'FIRST_NAME' :fn,'MIDDLE_NAME' : mn, 'LAST_NAME' : ln,'GENDER' : gn,
       'MARITAL_STATUS' : mm,
       'EDUCATION_DEGREE' :ed,
       'PRIMARY_SKILLS': ps,
@@ -249,7 +257,10 @@ d = {'FIRST_NAME' :fn,'MIDDLE_NAME' : mn, 'LAST_NAME' : ln,'GENDER' : gn,
       'AADHAR_NUMBER' : ad,
       'MOBILE_NUMBER' :mn,
       'DATE_OF_BIRTH' : db}
-df = pd.DataFrame(d)
+    d = {k: None if not v else v for k, v in d.items() }
+    df = pd.DataFrame.from_dict(d)
+    df.to_csv('test.csv')
+   #{ODBC Driver 13 for SQL Server}
+       
 
-df.to_csv()
 top.mainloop()
