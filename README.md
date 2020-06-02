@@ -10,9 +10,10 @@ WIT hackathon
 In command prompt navigate to xampp folder: and cd mysql/bin
 
 <path_to_xampp>\xampp\mysql\bin>mysql -u root
+
 	Ø Show databases;
 	Ø Use jobsindia;
-	Show tables;
+	Ø Show tables;
 	
 Open another command prompt:
 Navigate to witfive project repo folder in local
