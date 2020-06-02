@@ -29,6 +29,7 @@ Note: Mysql should be running before running 'npm run start' command'
 
 Open chrome browser and type in URL  
 localhost:8090
+
 Click Employee for employee registration page.
 Fill details, submit
 
