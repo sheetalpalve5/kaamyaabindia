@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>form-v1 by Colorlib</title>
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="css/opensans-font.css">
+	<link rel="stylesheet" type="text/css" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+	<!-- Main Style Css -->
+    <link rel="stylesheet" href="css/stylelogin.css"/>
+	<script type="text/javascript" src="js/cities.js"></script>
+</head>
+
+<body>
+	<div class="page-content">
+		<div class="form-v1-content" >
+			<div class="wizard-form" >
+		        <form id="empreg" class="form-register" action="/registeremployee" method="post" >
+		        	<div id="form-total">
+		        		<!-- SECTION 1 -->
+			            <h2>
+			            	<p class="step-icon"><span>01</span></p>
+			            	<span class="step-text">Personal Information</span>
+			            </h2>
+			            <section>
+			                <div class="inner">
+			                	<div class="wizard-header">
+									<h3 class="heading">Personal Infomation</h3>
+									<p>Please enter your infomation and proceed to the next step so we can build your accounts.  </p>
+								</div>
+								<div class="form-row">
+									<div class="form-holder">
+										<fieldset>
+											<legend>First Name</legend>
+											<input type="text" class="form-control" id="firstname" name="firstname" placeholder="First Name" required>
+										</fieldset>
+									</div>
+									<div class="form-holder">
+										<fieldset>
+											<legend>Last Name</legend>
+											<input type="text" class="form-control" id="lastname" name="lastname" placeholder="Last Name" required>
+										</fieldset>
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-holder form-holder-2">
+										<fieldset>
+											<legend>Your Email</legend>
+											<input type="text" name="uemail" id="uemail" class="form-control" pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" placeholder="example@email.com" required>
+										</fieldset>
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-holder">
+										<fieldset>
+											<legend>Phone Number</legend>
+											<input type="text" class="form-control" id="phone" name="phone" placeholder="+1 888-999-7777" required>
+										</fieldset>
+									</div>
+									<div class="form-holder">
+									<fieldset>
+										<legend>Birth Date</legend>
+										<input style = "width:150px" class="form-control" type="date" value="2004-02-09" id="dob" name="dob">
+										</fieldset>
+									</div>
+								</div>		
+<div class="form-row">
+									<div class="form-holder">
+										<fieldset style = "height: 110px">
+											<legend>Address</legend>
+											<textarea  style="border: none" rows="5"  class="form-control" id="address" name="address" placeholder="123 Main St." required></textarea>
+										</fieldset>
+									</div>
+									<div class="form-holder" style = "margin-top:7px">
+										<select onchange="print_city('city2', this.selectedIndex);" id="sts" name ="stt" class="form-control" required></select><hr/>
+										<select id ="city2" name="city2" class="form-control" required></select>
+									</div>
+									
+								</div>								
+								
+								<div class="form-row">
+									<div class="form-holder">
+										<input type="text" class="form-control input-border" id="adh" name="adh" placeholder="Aadhar card Number" required>
+									</div>
+									<div class="form-holder">
+									<fieldset>
+										<legend>Zip-Code</legend>
+										<input type="text" class="form-control" id="zip" name="zip" placeholder="123443" required>
+									</fieldset>
+									</div>
+								</div>
+								<div class="form-row">
+									    <label class="radio-inline">
+										  <input type="radio" name="optradio" value="M" checked>Male
+										</label>
+										<label class="radio-inline">
+										  <input type="radio" name="optradio" value="F" >Female
+										</label>
+										<label class="radio-inline">
+										  <input type="radio" name="optradio" value="T" >Transgender
+										</label>
+								</div>
+								<div class="form-row">
+									<div class="form-holder form-holder-2">
+										<select class="form-control" name="mstatus" id="mstatus">
+											<option value="">-Select Marital Status-</option>
+											<option value="Single">Single</option>
+											<option value="Married">Married</option>
+											<option value="Widowed">Widowed</option>
+											<option value="Separated">Separated</option>
+											<option value="Divorced">Divorced</option>
+										</select>
+									</div>
+								</div>
+
+							</div>
+			            </section>
+						<!-- SECTION 2 -->
+			            <h2>
+			            	<p class="step-icon"><span>02</span></p>
+			            	<span class="step-text">Skills & Preferences</span>
+			            </h2>
+			            <section>
+			                <div class="inner">
+			                	<div class="wizard-header">
+									<h3 class="heading">Skills & Preferences</h3>
+									<p>Please enter your infomation and proceed to the next step so we can set up your account.</p>
+								</div>
+								<div class="form-row">
+									<div class="form-holder form-holder-1">
+										<input type="text" name="langs" id="langs" placeholder="Languages known" class="form-control" required>
+									</div>
+									<div class="form-holder form-holder-1">
+										<input type="text" name="educ" id="educ" placeholder="Education" class="form-control" required>
+									</div>
+									<div class="form-holder form-holder-1">
+										<input type="text" name="expc" id="expc" placeholder="Yrs. Exp" class="form-control" required>
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-holder form-holder-1">
+										<input type="text" name="skills" id="skills" placeholder="Enter your skills" class="form-control" required>
+									</div>
+								</div>
+								 <label class="radio-inline">
+										  <input type="radio" name="pref" checked>Part time
+										</label>
+										<label class="radio-inline">
+										  <input type="radio" name="pref">Full time
+										</label>
+								<div class="form-row">
+									<div class="form-holder" style = "margin-top:7px">
+									<legend>Preferred Location</legend>
+										<select onchange="print_city('city1', this.selectedIndex);" id="sts1" name ="stt1" class="form-control" required></select><hr/>
+										<select id ="city1" name="city1" class="form-control" required></select>
+									</div>
+			                	</div>
+							</div>
+			            </section>
+			            <!-- SECTION 3 -->
+			            <h2>
+			            	<p class="step-icon"><span>03</span></p>
+			            	<span class="step-text">Account</span>
+			            </h2>
+			            <section>
+			                <div class="inner">
+			                	<div class="wizard-header">
+									<h3 class="heading">Account</h3>
+									<p>Please enter username, password and proceed to register.</p>
+								</div>
+								<div class="form-row">
+									<div class="form-holder form-holder-2">
+										<fieldset>
+											<legend>Username</legend>
+											<input type="text" name="username" id="username" class="form-control" placeholder="unique name" required>
+										</fieldset>
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-holder form-holder-2">
+										<fieldset>
+											<legend>Password</legend>
+											<input type="password" name="password" id="password" class="form-control" placeholder="****" required>
+										</fieldset>
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-holder form-holder-2">
+										<fieldset>
+											<legend>Confirm password</legend>
+											<input type="password" name="cpassword" id="cpassword" class="form-control" placeholder="****" required>
+										</fieldset>
+									</div>
+								</div>
+							</div>
+			            </section>
+		        	</div>
+		        </form>
+			</div>
+		</div>
+	</div>
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/jquery.steps.js"></script>
+	<script src="js/mainlogin.js"></script>
+	<script language="javascript">print_state("sts");</script>
+	<script language="javascript">print_state("sts1");</script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>

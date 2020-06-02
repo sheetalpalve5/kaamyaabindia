@@ -1,0 +1,34 @@
+{
+  "name": "kaamyaabindia_app",
+  "version": "1.0.0",
+  "description": "\"An app that allows the user to record information about jobs they have applied to assist in organizing their job search\"",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vanishreebhat/witfive.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vanishreebhat/witfive/issues"
+  },
+  "homepage": "https://github.com/vanishreebhat/witfive/blob/master/README.md",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "dotenv": "^5.0.1",
+    "moment": "^2.22.1",
+    "bcrypt": "^3.0.5",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "mysql": "^2.16.0",
+    "pug": "^2.0.3",
+    "util.promisify": "^1.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}
