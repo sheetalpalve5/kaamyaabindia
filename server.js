@@ -78,7 +78,7 @@ var env = require('dotenv').config();
 //  );
 //});
 
-var connection = mysql.createConnection({
+/*var connection = mysql.createConnection({
 host: 'localhost',
 user: 'root',
 password: '',
@@ -88,6 +88,7 @@ connection.connect(function(err){
     if (err) throw err;
     console.log('Connected');
 });
+*/
 
 // Routers
 app.use('/', pageRouter);

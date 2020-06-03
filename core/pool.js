@@ -4,13 +4,13 @@ const mysql = require('mysql');
 /**
  * Connection to the database.
  *  */
-const pool = mysql.createPool({
+/*const pool = mysql.createPool({
     connectionLimit: 10,
     host: 'localhost',
     user: 'root', // use your mysql username.
     password: '', // user your mysql password.
     database: 'jobsindia'
-});
+});*/
 
 //const cn = "DSN=usrProd;UID=username1;PWD=password1";
 //var odbcPool = require("ibm_db").Pool
@@ -28,7 +28,7 @@ const pool = mysql.createPool({
 //    //and will be ready the next time we do `pool.open(cn)`
 //});
 
-pool.getConnection((err, connection) => {
+/*pool.getConnection((err, connection) => {
     if(err)
         console.error("Something went wrong connecting to the database ...");
 
@@ -37,6 +37,6 @@ pool.getConnection((err, connection) => {
     return;
 });
 
-pool.query = util.promisify(pool.query);
+pool.query = util.promisify(pool.query);*/
 
-module.exports = pool;
+//module.exports = pool;
