@@ -1,6 +1,6 @@
 const util = require('util');
 const mysql = require('mysql');
-const odbc = require("odbc");
+
 /**
  * Connection to the database.
  *  */
