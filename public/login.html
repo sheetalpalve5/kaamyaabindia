@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login KaamYaab India</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="css/style_login.css">
+</head>
+<body>
+
+    <div class="main">
+
+        <h1>Login</h1>
+        <div class="container">
+            <div class="sign-up-content">
+                <form method="POST" class="signup-form">
+                    <p class="form-title">Type of user</p>
+                    <div class="form-radio">
+                        <input type="radio" name="member_level" value="recruiter" id="recruiter" checked="checked" />
+                        <label for="recruiter">Recruiter</label>
+
+                        <input type="radio" name="member_level" value="employee" id="employee" />
+                        <label for="employee">Employee</label>
+
+                    </div>
+
+                    <hr />
+
+                    <div class="form-textbox">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" />
+                    </div>
+
+                    <div class="form-textbox">
+                        <label for="pass">Password</label>
+                        <input type="password" name="pass" id="pass" />
+                    </div>
+
+                    <br />
+
+                    <div class="form-textbox">
+                        <input type="submit" name="submit" id="submit" class="submit" value="Login" />
+                    </div>
+                </form>
+
+                <p class="loginhere">
+                    Create an account<a href="#" class="loginhere-link"> Register</a>
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JS -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>

@@ -1,0 +1,537 @@
+doctype html
+head
+  title JobPortal - Free Bootstrap 4 Template by Colorlib
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  link(href='https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900' rel='stylesheet')
+  link(rel='stylesheet' href='css/open-iconic-bootstrap.min.css')
+  link(rel='stylesheet' href='css/animate.css')
+  link(rel='stylesheet' href='css/owl.carousel.min.css')
+  link(rel='stylesheet' href='css/owl.theme.default.min.css')
+  link(rel='stylesheet' href='css/magnific-popup.css')
+  link(rel='stylesheet' href='css/aos.css')
+  link(rel='stylesheet' href='css/ionicons.min.css')
+  link(rel='stylesheet' href='css/bootstrap-datepicker.css')
+  link(rel='stylesheet' href='css/jquery.timepicker.css')
+  link(rel='stylesheet' href='css/flaticon.css')
+  link(rel='stylesheet' href='css/icomoon.css')
+  link(rel='stylesheet' href='css/style.css')
+nav#ftco-navbar.navbar.navbar-expand-lg.navbar-dark.ftco_navbar.bg-dark.ftco-navbar-light
+  .container
+    a.navbar-brand(href='index.html') JobPortal
+    button.navbar-toggler(type='button' data-toggle='collapse' data-target='#ftco-nav' aria-controls='ftco-nav' aria-expanded='false' aria-label='Toggle navigation')
+      span.oi.oi-menu
+      |  Menu
+    #ftco-nav.collapse.navbar-collapse
+      ul.navbar-nav.ml-auto
+        li.nav-item.active
+          a.nav-link(href='index.html') Home
+        li.nav-item
+          a.nav-link(href='about.html') About
+        li.nav-item
+          a.nav-link(href='blog.html') Blog
+        li.nav-item
+          a.nav-link(href='contact.html') Contact
+        li.nav-item.cta.mr-md-2
+          a.nav-link(href='new-post.html') Post a Job
+        li.nav-item.cta.cta-colored
+          a.nav-link(href='job-post.html') Want a Job
+// END nav
+.hero-wrap.js-fullheight(style="background-image: url('images/bg_2.jpg');" data-stellar-background-ratio='0.5')
+  .overlay
+  .container
+    .row.no-gutters.slider-text.js-fullheight.align-items-center.justify-content-start(data-scrollax-parent='true')
+      .col-xl-10.ftco-animate.mb-5.pb-5(data-scrollax=" properties: { translateY: '70%' }")
+        p.mb-4.mt-5.pt-5(data-scrollax="properties: { translateY: '30%', opacity: 1.6 }")
+          | We have 
+          span.number(data-number='850000') 0
+          |  great job offers you deserve!
+        h1.mb-5(data-scrollax="properties: { translateY: '30%', opacity: 1.6 }")
+          | Your Dream 
+          br
+          span Job is Waiting
+        .ftco-search
+          .row
+            .col-md-12.nav-link-wrap
+              #v-pills-tab.nav.nav-pills.text-center(role='tablist' aria-orientation='vertical')
+                a#v-pills-1-tab.nav-link.active.mr-md-1(data-toggle='pill' href='#v-pills-1' role='tab' aria-controls='v-pills-1' aria-selected='true') Find a Job
+                a#v-pills-2-tab.nav-link(data-toggle='pill' href='#v-pills-2' role='tab' aria-controls='v-pills-2' aria-selected='false') Find a Candidate
+            .col-md-12.tab-wrap
+              #v-pills-tabContent.tab-content.p-4
+                #v-pills-1.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='v-pills-nextgen-tab')
+                  form.search-job(action='#')
+                    .row
+                      .col-md
+                        .form-group
+                          .form-field
+                            .icon
+                              span.icon-briefcase
+                            input.form-control(type='text' placeholder='eg. Garphic. Web Developer')
+                      .col-md
+                        .form-group
+                          .form-field
+                            .select-wrap
+                              .icon
+                                span.ion-ios-arrow-down
+                              select.form-control(name='' id='')
+                                option(value='') Category
+                                option(value='') Full Time
+                                option(value='') Part Time
+                                option(value='') Freelance
+                                option(value='') Internship
+                                option(value='') Temporary
+                      .col-md
+                        .form-group
+                          .form-field
+                            .icon
+                              span.icon-map-marker
+                            input.form-control(type='text' placeholder='Location')
+                      .col-md
+                        .form-group
+                          .form-field
+                            input.form-control.btn.btn-primary(type='submit' value='Search')
+                #v-pills-2.tab-pane.fade(role='tabpanel' aria-labelledby='v-pills-performance-tab')
+                  form.search-job(action='#')
+                    .row
+                      .col-md
+                        .form-group
+                          .form-field
+                            .icon
+                              span.icon-user
+                            input.form-control(type='text' placeholder='eg. Adam Scott')
+                      .col-md
+                        .form-group
+                          .form-field
+                            .select-wrap
+                              .icon
+                                span.ion-ios-arrow-down
+                              select.form-control(name='' id='')
+                                option(value='') Category
+                                option(value='') Full Time
+                                option(value='') Part Time
+                                option(value='') Freelance
+                                option(value='') Internship
+                                option(value='') Temporary
+                      .col-md
+                        .form-group
+                          .form-field
+                            .icon
+                              span.icon-map-marker
+                            input.form-control(type='text' placeholder='Location')
+                      .col-md
+                        .form-group
+                          .form-field
+                            input.form-control.btn.btn-primary(type='submit' value='Search')
+section.ftco-section.ftco-counter
+  .container
+    .row.justify-content-center.mb-5.pb-3
+      .col-md-7.heading-section.text-center.ftco-animate
+        span.subheading Categories work wating for you
+        h2.mb-4
+          span Current
+          |  Job Posts
+    .row
+      .col-md-3.ftco-animate
+        ul.category
+          li
+            a(href='#')
+              | Web Development 
+              span.number(data-number='1000') 0
+          li
+            a(href='#')
+              | Graphic Designer 
+              span.number(data-number='1000') 0
+          li
+            a(href='#')
+              | Multimedia 
+              span.number(data-number='2000') 0
+          li
+            a(href='#')
+              | Advertising 
+              span.number(data-number='900') 0
+      .col-md-3.ftco-animate
+        ul.category
+          li
+            a(href='#')
+              | Education &amp; Training 
+              span.number(data-number='3500') 0
+          li
+            a(href='#')
+              | English 
+              span.number(data-number='1560') 0
+          li
+            a(href='#')
+              | Social Media 
+              span.number(data-number='1000') 0
+          li
+            a(href='#')
+              | Writing 
+              span.number(data-number='2500') 0
+      .col-md-3.ftco-animate
+        ul.category
+          li
+            a(href='#')
+              | PHP Programming 
+              span.number(data-number='5500') 0
+          li
+            a(href='#')
+              | Project Management 
+              span.number(data-number='2000') 0
+          li
+            a(href='#')
+              | Finance Management 
+              span.number(data-number='800') 0
+          li
+            a(href='#')
+              | Office &amp; Admin 
+              span.number(data-number='7000') 0
+      .col-md-3.ftco-animate
+        ul.category
+          li
+            a(href='#')
+              | Web Designer 
+              span
+                span.number(data-number='8000') 0
+          li
+            a(href='#')
+              | Customer Service 
+              span.number(data-number='4000') 0
+          li
+            a(href='#')
+              | Marketing &amp; Sales 
+              span.number(data-number='3300') 0
+          li
+            a(href='#')
+              | Software Development 
+              span.number(data-number='1356') 0
+section.ftco-section.bg-light
+  .container
+    .row.justify-content-center.mb-5.pb-3
+      .col-md-7.heading-section.text-center.ftco-animate
+        span.subheading Recently Added Jobs
+        h2.mb-4
+          span Recent
+          |  Jobs
+    .row
+      .col-md-12.ftco-animate
+        .job-post-item.bg-white.p-4.d-block.d-md-flex.align-items-center
+          .mb-4.mb-md-0.mr-5
+            .job-post-item-header.d-flex.align-items-center
+              h2.mr-3.text-black.h3 Frontend Development
+              .badge-wrap
+                span.bg-primary.text-white.badge.py-2.px-3 Partime
+            .job-post-item-body.d-block.d-md-flex
+              .mr-3
+                span.icon-layers
+                a(href='#') Facebook, Inc.
+              div
+                span.icon-my_location
+                span Western City, UK
+          .ml-auto.d-flex
+            a.btn.btn-primary.py-2.mr-1(href='job-single.html') Apply Job
+            a.btn.btn-secondary.rounded-circle.btn-favorite.d-flex.align-items-center.icon(href='#')
+              span.icon-heart
+      // end
+      .col-md-12.ftco-animate
+        .job-post-item.bg-white.p-4.d-block.d-md-flex.align-items-center
+          .mb-4.mb-md-0.mr-5
+            .job-post-item-header.d-flex.align-items-center
+              h2.mr-3.text-black.h4 Full Stack Developer
+              .badge-wrap
+                span.bg-warning.text-white.badge.py-2.px-3 Full Time
+            .job-post-item-body.d-block.d-md-flex
+              .mr-3
+                span.icon-layers
+                a(href='#') Google, Inc.
+              div
+                span.icon-my_location
+                span Western City, UK
+          .ml-auto.d-flex
+            a.btn.btn-primary.py-2.mr-1(href='job-single.html') Apply Job
+            a.btn.btn-danger.rounded-circle.btn-favorite.d-flex.align-items-center(href='#')
+              span.icon-heart
+      // end
+      .col-md-12.ftco-animate
+        .job-post-item.bg-white.p-4.d-block.d-md-flex.align-items-center
+          .mb-4.mb-md-0.mr-5
+            .job-post-item-header.d-flex.align-items-center
+              h2.mr-3.text-black.h4 Open Source Interactive Developer
+              .badge-wrap
+                span.bg-info.text-white.badge.py-2.px-3 Freelance
+            .job-post-item-body.d-block.d-md-flex
+              .mr-3
+                span.icon-layers
+                a(href='#') New York Times
+              div
+                span.icon-my_location
+                span Western City, UK
+          .ml-auto.d-flex
+            a.btn.btn-primary.py-2.mr-1(href='job-single.html') Apply Job
+            a.btn.btn-secondary.rounded-circle.btn-favorite.d-flex.align-items-center.icon(href='#')
+              span.icon-heart
+      // end
+      .col-md-12.ftco-animate
+        .job-post-item.bg-white.p-4.d-block.d-md-flex.align-items-center
+          .mb-4.mb-md-0.mr-5
+            .job-post-item-header.d-flex.align-items-center
+              h2.mr-3.text-black.h4 Frontend Development
+              .badge-wrap
+                span.bg-secondary.text-white.badge.py-2.px-3 Internship
+            .job-post-item-body.d-block.d-md-flex
+              .mr-3
+                span.icon-layers
+                a(href='#') Facebook, Inc.
+              div
+                span.icon-my_location
+                span Western City, UK
+          .ml-auto.d-flex
+            a.btn.btn-primary.py-2.mr-1(href='job-single.html') Apply Job
+            a.btn.btn-secondary.rounded-circle.btn-favorite.d-flex.align-items-center.icon(href='#')
+              span.icon-heart
+      // end
+      .col-md-12.ftco-animate
+        .job-post-item.bg-white.p-4.d-block.d-md-flex.align-items-center
+          .mb-4.mb-md-0.mr-5
+            .job-post-item-header.d-flex.align-items-center
+              h2.mr-3.text-black.h4 Open Source Interactive Developer
+              .badge-wrap
+                span.bg-danger.text-white.badge.py-2.px-3 Temporary
+            .job-post-item-body.d-block.d-md-flex
+              .mr-3
+                span.icon-layers
+                a(href='#') New York Times
+              div
+                span.icon-my_location
+                span Western City, UK
+          .ml-auto.d-flex
+            a.btn.btn-primary.py-2.mr-1(href='job-single.html') Apply Job
+            a.btn.btn-secondary.rounded-circle.btn-favorite.d-flex.align-items-center.icon(href='#')
+              span.icon-heart
+      // end
+      .col-md-12.ftco-animate
+        .job-post-item.bg-white.p-4.d-block.d-md-flex.align-items-center
+          .mb-4.mb-md-0.mr-5
+            .job-post-item-header.d-flex.align-items-center
+              h2.mr-3.text-black.h3 Frontend Development
+              .badge-wrap
+                span.bg-primary.text-white.badge.py-2.px-3 Partime
+            .job-post-item-body.d-block.d-md-flex
+              .mr-3
+                span.icon-layers
+                a(href='#') Facebook, Inc.
+              div
+                span.icon-map-marker
+                span Western City, UK
+          .ml-auto.d-flex
+            a.btn.btn-primary.py-2.mr-1(href='job-single.html') Apply Job
+            a.btn.btn-secondary.rounded-circle.btn-favorite.d-flex.align-items-center.icon(href='#')
+              span.icon-heart
+      // end
+      .col-md-12.ftco-animate
+        .job-post-item.bg-white.p-4.d-block.d-md-flex.align-items-center
+          .mb-4.mb-md-0.mr-5
+            .job-post-item-header.d-flex.align-items-center
+              h2.mr-3.text-black.h4 Full Stack Developer
+              .badge-wrap
+                span.bg-warning.text-white.badge.py-2.px-3 Full Time
+            .job-post-item-body.d-block.d-md-flex
+              .mr-3
+                span.icon-layers
+                a(href='#') Google, Inc.
+              div
+                span.icon-my_location
+                span Western City, UK
+          .ml-auto.d-flex
+            a.btn.btn-primary.py-2.mr-1(href='job-single.html') Apply Job
+            a.btn.btn-secondary.rounded-circle.btn-favorite.d-flex.align-items-center.icon(href='#')
+              span.icon-heart
+      // end
+      .col-md-12.ftco-animate
+        .job-post-item.bg-white.p-4.d-block.d-md-flex.align-items-center
+          .mb-4.mb-md-0.mr-5
+            .job-post-item-header.d-flex.align-items-center
+              h2.mr-3.text-black.h4 Open Source Interactive Developer
+              .badge-wrap
+                span.bg-info.text-white.badge.py-2.px-3 Freelance
+            .job-post-item-body.d-block.d-md-flex
+              .mr-3
+                span.icon-layers
+                a(href='#') New York Times
+              div
+                span.icon-my_location
+                span Western City, UK
+          .ml-auto.d-flex
+            a.btn.btn-primary.py-2.mr-1(href='job-single.html') Apply Job
+            a.btn.btn-secondary.rounded-circle.btn-favorite.d-flex.align-items-center.icon(href='#')
+              span.icon-heart
+      // end
+      .col-md-12.ftco-animate
+        .job-post-item.bg-white.p-4.d-block.d-md-flex.align-items-center
+          .mb-4.mb-md-0.mr-5
+            .job-post-item-header.d-flex.align-items-center
+              h2.mr-3.text-black.h4 Frontend Development
+              .badge-wrap
+                span.bg-secondary.text-white.badge.py-2.px-3 Internship
+            .job-post-item-body.d-block.d-md-flex
+              .mr-3
+                span.icon-layers
+                a(href='#') Facebook, Inc.
+              div
+                span.icon-my_location
+                span Western City, UK
+          .ml-auto.d-flex
+            a.btn.btn-primary.py-2.mr-1(href='job-single.html') Apply Job
+            a.btn.btn-secondary.rounded-circle.btn-favorite.d-flex.align-items-center.icon(href='#')
+              span.icon-heart
+      // end
+      .col-md-12.ftco-animate
+        .job-post-item.bg-white.p-4.d-block.d-md-flex.align-items-center
+          .mb-4.mb-md-0.mr-5
+            .job-post-item-header.d-flex.align-items-center
+              h2.mr-3.text-black.h4 Open Source Interactive Developer
+              .badge-wrap
+                span.bg-danger.text-white.badge.py-2.px-3 Temporary
+            .job-post-item-body.d-block.d-md-flex
+              .mr-3
+                span.icon-layers
+                a(href='#') New York Times
+              div
+                span.icon-my_location
+                span Western City, UK
+          .ml-auto.d-flex
+            a.btn.btn-primary.py-2.mr-1(href='job-single.html') Apply Job
+            a.btn.btn-secondary.rounded-circle.btn-favorite.d-flex.align-items-center.icon(href='#')
+              span.icon-heart
+      // end
+    .row.mt-5
+      .col.text-center
+        .block-27
+          ul
+            li
+              a(href='#') &lt;
+            li.active
+              span 1
+            li
+              a(href='#') 2
+            li
+              a(href='#') 3
+            li
+              a(href='#') 4
+            li
+              a(href='#') 5
+            li
+              a(href='#') &gt;
+section.ftco-section-parallax
+  .parallax-img.d-flex.align-items-center
+    .container
+      .row.d-flex.justify-content-center
+        .col-md-7.text-center.heading-section.heading-section-white.ftco-animate
+          h2 Subcribe to our Newsletter
+          p
+            | Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in
+          .row.d-flex.justify-content-center.mt-4.mb-4
+            .col-md-8
+              form.subscribe-form(action='#')
+                .form-group.d-flex
+                  input.form-control(type='text' placeholder='Enter email address')
+                  input.submit.px-3(type='submit' value='Subscribe')
+footer.ftco-footer.ftco-bg-dark.ftco-section
+  .container
+    .row.mb-5
+      .col-md
+        .ftco-footer-widget.mb-4
+          h2.ftco-heading-2 About
+          p
+            | Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
+          ul.ftco-footer-social.list-unstyled.float-md-left.float-lft.mt-3
+            li.ftco-animate
+              a(href='#')
+                span.icon-twitter
+            li.ftco-animate
+              a(href='#')
+                span.icon-facebook
+            li.ftco-animate
+              a(href='#')
+                span.icon-instagram
+      .col-md
+        .ftco-footer-widget.mb-4
+          h2.ftco-heading-2 Employers
+          ul.list-unstyled
+            li
+              a.py-2.d-block(href='#') How it works
+            li
+              a.py-2.d-block(href='#') Register
+            li
+              a.py-2.d-block(href='#') Post a Job
+            li
+              a.py-2.d-block(href='#') Advance Skill Search
+            li
+              a.py-2.d-block(href='#') Recruiting Service
+            li
+              a.py-2.d-block(href='#') Blog
+            li
+              a.py-2.d-block(href='#') Faq
+      .col-md
+        .ftco-footer-widget.mb-4.ml-md-4
+          h2.ftco-heading-2 Workers
+          ul.list-unstyled
+            li
+              a.py-2.d-block(href='#') How it works
+            li
+              a.py-2.d-block(href='#') Register
+            li
+              a.py-2.d-block(href='#') Post Your Skills
+            li
+              a.py-2.d-block(href='#') Job Search
+            li
+              a.py-2.d-block(href='#') Emploer Search
+      .col-md
+        .ftco-footer-widget.mb-4
+          h2.ftco-heading-2 Have a Questions?
+          .block-23.mb-3
+            ul
+              li
+                span.icon.icon-map-marker
+                span.text 203 Fake St. Mountain View, San Francisco, California, USA
+              li
+                a(href='#')
+                  span.icon.icon-phone
+                  span.text +2 392 3929 210
+              li
+                a(href='#')
+                  span.icon.icon-envelope
+                  span.text info@yourdomain.com
+    .row
+      .col-md-12.text-center
+        p
+          // Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
+          | Copyright &copy;
+          script.
+            document.write(new Date().getFullYear());
+          |  All rights reserved | This template is made with 
+          i.icon-heart.text-danger(aria-hidden='true')
+          |  by 
+          a(href='https://colorlib.com' target='_blank') Colorlib
+          // Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
+// loader
+#ftco-loader.show.fullscreen
+  svg.circular(width='48px' height='48px')
+    circle.path-bg(cx='24' cy='24' r='22' fill='none' stroke-width='4' stroke='#eeeeee')
+    circle.path(cx='24' cy='24' r='22' fill='none' stroke-width='4' stroke-miterlimit='10' stroke='#F96D00')
+script(src='js/jquery.min.js')
+script(src='js/jquery-migrate-3.0.1.min.js')
+script(src='js/popper.min.js')
+script(src='js/bootstrap.min.js')
+script(src='js/jquery.easing.1.3.js')
+script(src='js/jquery.waypoints.min.js')
+script(src='js/jquery.stellar.min.js')
+script(src='js/owl.carousel.min.js')
+script(src='js/jquery.magnific-popup.min.js')
+script(src='js/aos.js')
+script(src='js/jquery.animateNumber.min.js')
+script(src='js/bootstrap-datepicker.js')
+script(src='js/jquery.timepicker.min.js')
+script(src='js/scrollax.min.js')
+script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false')
+script(src='js/google-map.js')
+script(src='js/main.js')

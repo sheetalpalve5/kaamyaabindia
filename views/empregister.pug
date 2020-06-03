@@ -1,0 +1,159 @@
+doctype html
+head
+  meta(charset='utf-8')
+  title form-v1 by Colorlib
+  // Mobile Specific Metas
+  meta(name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1')
+  // Font
+  link(rel='stylesheet' type='text/css' href='css/opensans-font.css')
+  link(rel='stylesheet' type='text/css' href='fonts/material-design-iconic-font/css/material-design-iconic-font.min.css')
+  // Main Style Css
+  link(rel='stylesheet' href='css/stylelogin.css')
+  script(type='text/javascript' src='js/cities.js')
+.page-content
+  .form-v1-content
+    .wizard-form
+      form#empreg.form-register(action='/registeremployee' method='post')
+        #form-total
+          // SECTION 1
+          h2
+            p.step-icon
+              span 01
+            span.step-text Personal Information
+          section
+            .inner
+              .wizard-header
+                h3.heading Personal Infomation
+                p
+                  | Please enter your infomation and proceed to the next step so we can build your accounts.
+              .form-row
+                .form-holder
+                  fieldset
+                    legend First Name
+                    input#firstname.form-control(type='text' name='firstname' placeholder='First Name' required='')
+                .form-holder
+                  fieldset
+                    legend Last Name
+                    input#lastname.form-control(type='text' name='lastname' placeholder='Last Name' required='')
+              .form-row
+                .form-holder.form-holder-2
+                  fieldset
+                    legend Your Email
+                    input#uemail.form-control(type='text' name='uemail' pattern='[^@]+@[^@]+.[a-zA-Z]{2,6}' placeholder='example@email.com' required='')
+              .form-row
+                .form-holder
+                  fieldset
+                    legend Phone Number
+                    input#phone.form-control(type='text' name='phone' placeholder='+1 888-999-7777' required='')
+                .form-holder
+                  fieldset
+                    legend Birth Date
+                    input#dob.form-control(style='width:150px' type='date' value='2004-02-09' name='dob')
+              .form-row
+                .form-holder
+                  fieldset(style='height: 110px')
+                    legend Address
+                    textarea#address.form-control(style='border: none' rows='5' name='address' placeholder='123 Main St.' required='')
+                .form-holder(style='margin-top:7px')
+                  select#sts.form-control(onchange="print_city('city2', this.selectedIndex);" name='stt' required='')
+                  hr
+                  select#city2.form-control(name='city2' required='')
+              .form-row
+                .form-holder
+                  input#adh.form-control.input-border(type='text' name='adh' placeholder='Aadhar card Number' required='')
+                .form-holder
+                  fieldset
+                    legend Zip-Code
+                    input#zip.form-control(type='text' name='zip' placeholder='123443' required='')
+              .form-row
+                label.radio-inline
+                  input(type='radio' name='optradio' value='M' checked='')
+                  | Male
+                label.radio-inline
+                  input(type='radio' name='optradio' value='F')
+                  | Female
+                label.radio-inline
+                  input(type='radio' name='optradio' value='T')
+                  | Transgender
+              .form-row
+                .form-holder.form-holder-2
+                  select#mstatus.form-control(name='mstatus')
+                    option(value='') -Select Marital Status-
+                    option(value='Single') Single
+                    option(value='Married') Married
+                    option(value='Widowed') Widowed
+                    option(value='Separated') Separated
+                    option(value='Divorced') Divorced
+          // SECTION 2
+          h2
+            p.step-icon
+              span 02
+            span.step-text Skills &amp; Preferences
+          section
+            .inner
+              .wizard-header
+                h3.heading Skills &amp; Preferences
+                p
+                  | Please enter your infomation and proceed to the next step so we can set up your account.
+              .form-row
+                .form-holder.form-holder-1
+                  input#langs.form-control(type='text' name='langs' placeholder='Languages known' required='')
+                .form-holder.form-holder-1
+                  input#educ.form-control(type='text' name='educ' placeholder='Education' required='')
+                .form-holder.form-holder-1
+                  input#expc.form-control(type='text' name='expc' placeholder='Yrs. Exp' required='')
+              .form-row
+                .form-holder.form-holder-1
+                  input#skills.form-control(type='text' name='skills' placeholder='Enter your skills' required='')
+              label.radio-inline
+                input(type='radio' name='pref' checked='')
+                | Part time
+              label.radio-inline
+                input(type='radio' name='pref')
+                | Full time
+              .form-row
+                .form-holder(style='margin-top:7px')
+                  legend Preferred Location
+                  select#sts1.form-control(onchange="print_city('city1', this.selectedIndex);" name='stt1' required='')
+                  hr
+                  select#city1.form-control(name='city1' required='')
+          // SECTION 3
+          h2
+            p.step-icon
+              span 03
+            span.step-text Account
+          section
+            .inner
+              .wizard-header
+                h3.heading Account
+                p Please enter username, password and proceed to register.
+              .form-row
+                .form-holder.form-holder-2
+                  fieldset
+                    legend Username
+                    input#username.form-control(type='text' name='username' placeholder='unique name' required='')
+              .form-row
+                .form-holder.form-holder-2
+                  fieldset
+                    legend Password
+                    input#password.form-control(type='password' name='password' placeholder='****' required='')
+              .form-row
+                .form-holder.form-holder-2
+                  fieldset
+                    legend Confirm password
+                    input#cpassword.form-control(type='password' name='cpassword' placeholder='****' required='')
+              .form-group
+                input#agree-term.agree-term(type='checkbox' name='agree-term')
+                label.label-agree-term(for='agree-term')
+                  span
+                    span
+                  | I agree to the
+                  a.term-service(href='#') Terms of service
+script(src='js/jquery-3.3.1.min.js')
+script(src='js/jquery.steps.js')
+script(src='js/mainlogin.js')
+script(language='javascript').
+  print_state("sts");
+script(language='javascript').
+  print_state("sts1");
+// This templates was made by Colorlib (https://colorlib.com)

@@ -2,26 +2,35 @@ var express = require('express');
 var session = require('express-session');
 var mysql = require('mysql');
 const path = require('path');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
+const odbc = require("odbc");
 const pageRouter = require('./routes/pages');
 const bodyParser = require('body-parser');
-const app = express();
-const port = 3000;
-var PORT = process.env.PORT || 8090;
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
-//app.use(express.static('public'));
 
+//var index = require('./routes/index');
+//var users = require('./routes/users');
+
+const app = express();
+var PORT = process.env.PORT || 8090;
+
+// view engine setup
+//app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'pug');
+
+app.use(logger('dev'));
 // parse application/json
 app.use(bodyParser.json());
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: 'application/*+json' }))
-app.set('view engine', 'jade');
-//app.set('views', path.join(__dirname, 'views'));
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
 
 // session
 app.use(session({
-    secret:'youtube_video',
+    secret:'app',
     resave: false,
     saveUninitialized: false,
     cookie: {
@@ -29,7 +38,45 @@ app.use(session({
     }
 }));
 
+var checkUser=function(req,res,next){
+  if(req.session.loggedIn){
+    next();
+  }else{
+  var admin="admin", password="admin";
+    if(req.body.username===admin && req.body.password===password){
+      req.session.loggedIn=true;
+      res.redirect('/');
+    }else{
+      res.render('login',{title:"Login Here"});
+    }
+//    res.render('login',{title:"Login Here"});
+  }
+};
+
+var logout=function(req,res,next){
+  req.session.loggedIn=false;
+  res.redirect('/');
+};
+//app.use('/',checkUser, index);
+//  Login Work Start End
+//app.use('/users', users);
+
+
 var env = require('dotenv').config();
+
+//const cn = "DSN=usrProd;UID=username1;PWD=password1";
+//
+//odbc.connect(cn, (error, connection) => {
+//  connection.query(
+//    "SELECT * FROM jobsindia.LND_EMPLOYEE_REGISTRATION FETCH FIRST 2 ROWS ONLY",
+//    (error, result) => {
+//      if (error) {
+//        throw error;
+//      }
+//      console.log(result);
+//    }
+//  );
+//});
 
 var connection = mysql.createConnection({
 host: 'localhost',
@@ -40,15 +87,6 @@ database: 'jobsindia'
 connection.connect(function(err){
     if (err) throw err;
     console.log('Connected');
-});
-
-app.post('/submit', function(req,res){
-var sql = "insert into LND_EMPLOYEE_REGISTRATION values(null, '"+req.body.firstname+"','"+req.body.lastname+"','"+req.body.gender+"')";
-connection.query(sql, function(err){
- if (err) throw err;
- res.render('index', {title: 'Data Saved', message: 'Data saved successfully.'});
-});
-connection.end();
 });
 
 // Routers

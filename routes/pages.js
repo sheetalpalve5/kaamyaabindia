@@ -11,25 +11,14 @@ router.get('/', (req, res, next) => {
     let user = req.session.user;
     // If there is a session named user that means the use is logged in. so we redirect him to home page by using /home route below
     if(user) {
-        res.redirect('/home');
+        res.render('index', {loggedIn:true, usernm: user});
         return;
     }
     // IF not we just send the index page.
-    res.render('index', {title:"Kaamyaab India"});
+    res.render('index', {loggedIn:false, usernm: null});
 })
 
 router.get('/empregister', (req, res, next) => {
-//if(document.getElementById("emplogin").text == "Logout"){
-//if(req.session.user) {
-//        // destroy the session and redirect the user to the index page.
-//        req.session.destroy(function() {
-//            res.redirect('/');
-//        });
-//       window.loggedIn = false;
-//     window.usnm = '';
-//    }
-//}
-//else{
 res.sendFile(path.join(__dirname, "../public/empregister.html"));
 //}
 //res.render('/empregister.pug');
@@ -64,6 +53,45 @@ router.post('/login', (req, res, next) => {
     })
 
 });
+var exec = require('child_process').exec;
+
+/* GET home page. */
+router.get('/', function(req, res, next) {
+    res.render('index')
+});
+
+router.get('/login', (req, res, next) => {
+res.render('')
+//var spawn = require("child_process").spawn;
+// $.ajax({
+//        type: "GET",
+//        url: "../app_1.py",
+//        success: callbackFunc
+//    });
+});
+
+function callbackFunc(response) {
+    // do something with the response
+    console.log(response);
+}
+
+
+//    var process = spawn('python',["../app_1.py"] );
+//
+//    process.stdout.on('data', function(data) {
+//        res.send(data.toString());
+//    } );
+
+   /* var child = exec('python ../app_1.py')
+    child.stdout.on('data', function(data) {
+        console.log('stdout: ' + data)
+    })
+    child.stderr.on('data', function(data) {
+        console.log('stdout: ' + data)
+    })
+    child.on('close', function(code) {
+        console.log('closing code: ' + code)
+    }) */
 
 
 // Post register data
@@ -99,7 +127,9 @@ router.post('/registeremployee', (req, res, next) => {
             user.find(lastId, function(result) {
                 req.session.user = result;
                 req.session.opp = 0;
-                res.redirect('/');
+                console.log('lastid', lastId);
+                console.log('user', result)
+                res.render('index', {loggedIn:true, usernm: req.body.firstname});
             });
 
         }else {
@@ -111,9 +141,10 @@ router.post('/registeremployee', (req, res, next) => {
 
 
 // Get loggout page
-router.get('/loggout', (req, res, next) => {
+router.get('/logout', (req, res, next) => {
     // Check if the session is exist
     if(req.session.user) {
+        req.session.loggedIn=false;
         // destroy the session and redirect the user to the index page.
         req.session.destroy(function() {
             res.redirect('/');

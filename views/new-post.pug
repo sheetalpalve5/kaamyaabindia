@@ -1,0 +1,244 @@
+doctype html
+head
+  title JobPortal - Free Bootstrap 4 Template by Colorlib
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  link(href='https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900' rel='stylesheet')
+  link(rel='stylesheet' href='css/open-iconic-bootstrap.min.css')
+  link(rel='stylesheet' href='css/animate.css')
+  link(rel='stylesheet' href='css/owl.carousel.min.css')
+  link(rel='stylesheet' href='css/owl.theme.default.min.css')
+  link(rel='stylesheet' href='css/magnific-popup.css')
+  link(rel='stylesheet' href='css/aos.css')
+  link(rel='stylesheet' href='css/ionicons.min.css')
+  link(rel='stylesheet' href='css/bootstrap-datepicker.css')
+  link(rel='stylesheet' href='css/jquery.timepicker.css')
+  link(rel='stylesheet' href='css/flaticon.css')
+  link(rel='stylesheet' href='css/icomoon.css')
+  link(rel='stylesheet' href='css/style.css')
+nav#ftco-navbar.navbar.navbar-expand-lg.navbar-dark.ftco_navbar.bg-dark.ftco-navbar-light
+  .container
+    a.navbar-brand(href='index.html') JobPortal
+    button.navbar-toggler(type='button' data-toggle='collapse' data-target='#ftco-nav' aria-controls='ftco-nav' aria-expanded='false' aria-label='Toggle navigation')
+      span.oi.oi-menu
+      |  Menu
+    #ftco-nav.collapse.navbar-collapse
+      ul.navbar-nav.ml-auto
+        li.nav-item
+          a.nav-link(href='index.html') Home
+        li.nav-item
+          a.nav-link(href='about.html') About
+        li.nav-item
+          a.nav-link(href='blog.html') Blog
+        li.nav-item
+          a.nav-link(href='contact.html') Contact
+        li.nav-item.cta.mr-md-2
+          a.nav-link(href='new-post.html') Post a Job
+        li.nav-item.cta.cta-colored
+          a.nav-link(href='job-post.html') Want a Job
+// END nav
+.hero-wrap.js-fullheight(style="background-image: url('images/bg_2.jpg');" data-stellar-background-ratio='0.5')
+  .overlay
+  .container
+    .row.no-gutters.slider-text.js-fullheight.align-items-end.justify-content-start(data-scrollax-parent='true')
+      .col-md-8.ftco-animate.text-center.text-md-left.mb-5(data-scrollax=" properties: { translateY: '70%' }")
+        p.breadcrumbs(data-scrollax="properties: { translateY: '30%', opacity: 1.6 }")
+          span.mr-3
+            a(href='index.html')
+              | Home 
+              i.ion-ios-arrow-forward
+          span Post a Job
+        h1.mb-3.bread(data-scrollax="properties: { translateY: '30%', opacity: 1.6 }") Post a Job
+.ftco-section.bg-light
+  .container
+    .row
+      .col-md-12.col-lg-8.mb-5
+        form.p-5.bg-white(action='#')
+          .row.form-group
+            .col-md-12.mb-3.mb-md-0
+              label(for='option-price-1')
+                input#option-price-1(type='checkbox')
+                span.text-success $500
+                |  For 30 days
+            .col-md-12.mb-3.mb-md-0
+              label(for='option-price-2')
+                input#option-price-2(type='checkbox')
+                span.text-success $300
+                |  / Monthly Recurring
+          .row.form-group
+            .col-md-12.mb-3.mb-md-0
+              label.font-weight-bold(for='fullname') Job Title
+              input#fullname.form-control(type='text' placeholder='eg. Professional UI/UX Designer')
+          .row.form-group.mb-5
+            .col-md-12.mb-3.mb-md-0
+              label.font-weight-bold(for='fullname') Company
+              input#fullname.form-control(type='text' placeholder='eg. Facebook, Inc.')
+          .row.form-group
+            .col-md-12
+              h3 Job Type
+            .col-md-12.mb-3.mb-md-0
+              label(for='option-job-type-1')
+                input#option-job-type-1(type='radio' name='job-type')
+                |  Full Time
+            .col-md-12.mb-3.mb-md-0
+              label(for='option-job-type-2')
+                input#option-job-type-2(type='radio' name='job-type')
+                |  Part Time
+            .col-md-12.mb-3.mb-md-0
+              label(for='option-job-type-3')
+                input#option-job-type-3(type='radio' name='job-type')
+                |  Freelance
+            .col-md-12.mb-3.mb-md-0
+              label(for='option-job-type-4')
+                input#option-job-type-4(type='radio' name='job-type')
+                |  Internship
+            .col-md-12.mb-3.mb-md-0
+              label(for='option-job-type-4')
+                input#option-job-type-4(type='radio' name='job-type')
+                |  Termporary
+          .row.form-group.mb-4
+            .col-md-12
+              h3 Location
+            .col-md-12.mb-3.mb-md-0
+              input.form-control(type='text' placeholder='Western City, UK\
+              ')
+          .row.form-group
+            .col-md-12
+              h3 Job Description
+            .col-md-12.mb-3.mb-md-0
+              textarea.form-control(name='' id='' cols='30' rows='5')
+          .row.form-group
+            .col-md-12
+              input.btn.btn-primary.py-2.px-5(type='submit' value='Post')
+      .col-lg-4
+        .p-4.mb-3.bg-white
+          h3.h5.text-black.mb-3 Contact Info
+          p.mb-0.font-weight-bold Address
+          p.mb-4 203 Fake St. Mountain View, San Francisco, California, USA
+          p.mb-0.font-weight-bold Phone
+          p.mb-4
+            a(href='#') +1 232 3235 324
+          p.mb-0.font-weight-bold Email Address
+          p.mb-0
+            a(href='#')
+              span.__cf_email__(data-cfemail='671e081215020a060e0b2703080a060e094904080a') [email&nbsp;protected]
+        .p-4.mb-3.bg-white
+          h3.h5.text-black.mb-3 More Info
+          p
+            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa ad iure porro mollitia architecto hic consequuntur. Distinctio nisi perferendis dolore, ipsa consectetur
+          p
+            a.btn.btn-primary.py-2.px-4(href='#') Learn More
+section.ftco-section-parallax
+  .parallax-img.d-flex.align-items-center
+    .container
+      .row.d-flex.justify-content-center
+        .col-md-7.text-center.heading-section.heading-section-white.ftco-animate
+          h2 Subcribe to our Newsletter
+          p
+            | Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in
+          .row.d-flex.justify-content-center.mt-4.mb-4
+            .col-md-8
+              form.subscribe-form(action='#')
+                .form-group.d-flex
+                  input.form-control(type='text' placeholder='Enter email address')
+                  input.submit.px-3(type='submit' value='Subscribe')
+footer.ftco-footer.ftco-bg-dark.ftco-section
+  .container
+    .row.mb-5
+      .col-md
+        .ftco-footer-widget.mb-4
+          h2.ftco-heading-2 About
+          p
+            | Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
+          ul.ftco-footer-social.list-unstyled.float-md-left.float-lft.mt-3
+            li.ftco-animate
+              a(href='#')
+                span.icon-twitter
+            li.ftco-animate
+              a(href='#')
+                span.icon-facebook
+            li.ftco-animate
+              a(href='#')
+                span.icon-instagram
+      .col-md
+        .ftco-footer-widget.mb-4
+          h2.ftco-heading-2 Employers
+          ul.list-unstyled
+            li
+              a.py-2.d-block(href='#') How it works
+            li
+              a.py-2.d-block(href='#') Register
+            li
+              a.py-2.d-block(href='#') Post a Job
+            li
+              a.py-2.d-block(href='#') Advance Skill Search
+            li
+              a.py-2.d-block(href='#') Recruiting Service
+            li
+              a.py-2.d-block(href='#') Blog
+            li
+              a.py-2.d-block(href='#') Faq
+      .col-md
+        .ftco-footer-widget.mb-4.ml-md-4
+          h2.ftco-heading-2 Workers
+          ul.list-unstyled
+            li
+              a.py-2.d-block(href='#') How it works
+            li
+              a.py-2.d-block(href='#') Register
+            li
+              a.py-2.d-block(href='#') Post Your Skills
+            li
+              a.py-2.d-block(href='#') Job Search
+            li
+              a.py-2.d-block(href='#') Emploer Search
+      .col-md
+        .ftco-footer-widget.mb-4
+          h2.ftco-heading-2 Have a Questions?
+          .block-23.mb-3
+            ul
+              li
+                span.icon.icon-map-marker
+                span.text 203 Fake St. Mountain View, San Francisco, California, USA
+              li
+                a(href='#')
+                  span.icon.icon-phone
+                  span.text +2 392 3929 210
+              li
+                a(href='#')
+                  span.icon.icon-envelope
+                  span.text info@yourdomain.com
+    .row
+      .col-md-12.text-center
+        p
+          // Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
+          | Copyright &copy;
+          script.
+            document.write(new Date().getFullYear());
+          |  All rights reserved | This template is made with 
+          i.icon-heart.text-danger(aria-hidden='true')
+          |  by 
+          a(href='https://colorlib.com' target='_blank') Colorlib
+          // Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
+// loader
+#ftco-loader.show.fullscreen
+  svg.circular(width='48px' height='48px')
+    circle.path-bg(cx='24' cy='24' r='22' fill='none' stroke-width='4' stroke='#eeeeee')
+    circle.path(cx='24' cy='24' r='22' fill='none' stroke-width='4' stroke-miterlimit='10' stroke='#F96D00')
+script(src='js/jquery.min.js')
+script(src='js/jquery-migrate-3.0.1.min.js')
+script(src='js/popper.min.js')
+script(src='js/bootstrap.min.js')
+script(src='js/jquery.easing.1.3.js')
+script(src='js/jquery.waypoints.min.js')
+script(src='js/jquery.stellar.min.js')
+script(src='js/owl.carousel.min.js')
+script(src='js/jquery.magnific-popup.min.js')
+script(src='js/aos.js')
+script(src='js/jquery.animateNumber.min.js')
+script(src='js/bootstrap-datepicker.js')
+script(src='js/jquery.timepicker.min.js')
+script(src='js/scrollax.min.js')
+script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false')
+script(src='js/google-map.js')
+script(src='js/main.js')
