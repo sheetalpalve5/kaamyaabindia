@@ -4,7 +4,7 @@ var mysql = require('mysql');
 const path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
-const odbc = require("odbc");
+
 const pageRouter = require('./routes/pages');
 const bodyParser = require('body-parser');
 

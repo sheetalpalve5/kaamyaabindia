@@ -53,7 +53,7 @@ router.post('/login', (req, res, next) => {
     })
 
 });
-var exec = require('child_process').exec;
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
