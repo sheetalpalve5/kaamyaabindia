@@ -1,6 +1,6 @@
 doctype html
 head
-  title JobPortal - Free Bootstrap 4 Template by Colorlib
+  title KaamYaab India
   meta(charset='utf-8')
   meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
   link(href='https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900' rel='stylesheet')
@@ -16,28 +16,37 @@ head
   link(rel='stylesheet' href='css/flaticon.css')
   link(rel='stylesheet' href='css/icomoon.css')
   link(rel='stylesheet' href='css/style.css')
+  link(rel='stylesheet' href='css/bootstrap/bootstrap.min.css')
 nav#ftco-navbar.navbar.navbar-expand-lg.navbar-dark.ftco_navbar.bg-dark.ftco-navbar-light
   .container
-    a.navbar-brand(href='index.html') JobPortal
+    a.navbar-brand(href='index.html')
+      img(src='images/icon.jpeg' alt='Img' width='40' height='40')
+      |   KaamYaab India
     button.navbar-toggler(type='button' data-toggle='collapse' data-target='#ftco-nav' aria-controls='ftco-nav' aria-expanded='false' aria-label='Toggle navigation')
       span.oi.oi-menu
       |  Menu
     #ftco-nav.collapse.navbar-collapse
       ul.navbar-nav.ml-auto
         li.nav-item
-          a.nav-link(href='index.html') Home
+          a.nav-link(href='/') Home
         li.nav-item
-          a.nav-link(href='about.html') About
+          a.nav-link(href='/about') About
+        li.nav-item
+          a.nav-link(href='/training') Trainings
         li.nav-item.active
-          a.nav-link(href='blog.html') Blog
+          a.nav-link(href='/blog') Financial Options
         li.nav-item
           a.nav-link(href='contact.html') Contact
-        li.nav-item.cta.mr-md-2
-          a.nav-link(href='new-post.html') Post a Job
-        li.nav-item.cta.cta-colored
-          a.nav-link(href='job-post.html') Want a Job
+        li.nav-item.cta.mr-md-1
+          a#rclogin.nav-link(href='/loginpage') Login
+        li.nav-item.cta.mr-md-1
+          a#rclogin.nav-link(href='/jobpostpage') Post A Job
+        li.nav-item
+          a#logusername.nav-link(href='#' style='display:none;') Welcome #{user}
+        li.nav-item
+          a#logout.nav-link(href='/logout' style='display:none;') Logout
 // END nav
-.hero-wrap.js-fullheight(style="background-image: url('images/bg_2.jpg');" data-stellar-background-ratio='0.5')
+.hero-wrap.js-fullheight(style="background-image: url('images/image_9.jpg');" data-stellar-background-ratio='0.5')
   .overlay
   .container
     .row.no-gutters.slider-text.js-fullheight.align-items-end.justify-content-start(data-scrollax-parent='true')
@@ -47,257 +56,224 @@ nav#ftco-navbar.navbar.navbar-expand-lg.navbar-dark.ftco_navbar.bg-dark.ftco-nav
             a(href='index.html')
               | Home 
               i.ion-ios-arrow-forward
-          span Blog
-        h1.mb-3.bread(data-scrollax="properties: { translateY: '30%', opacity: 1.6 }") Blog
+          span Seek Finance Help
+        h1.mb-3.bread(data-scrollax="properties: { translateY: '30%', opacity: 1.6 }") Seek Finance Help
 section.ftco-section.bg-light
   .container
     .row.d-flex
       .col-md-3.d-flex.ftco-animate
         .blog-entry.align-self-stretch
-          a.block-20(href='blog-single.html' style="background-image: url('images/image_1.jpg');")
+          a.block-20(href='blog-PMSYM.html' style="background-image: url('images/image_1.jpg');")
           .text.mt-3
-            .meta.mb-2
-              div
-                a(href='#') December 2, 2018
-              div
-                a(href='#') Admin
-              div
-                a.meta-chat(href='#')
-                  span.icon-chat
-                  |  3
-            h3.heading
-              a(href='#') Even the all-powerful Pointing has no control about the blind texts
-            p
-              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias architecto enim non iste maxime optio, ut com
+            //
+              <div class="meta mb-2">
+              <div><a href="#">December 2, 2018</a></div>
+              <div><a href="#">Admin</a></div>
+              <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+              </div>
+            h6.heading
+              a(href='blog-PMSYM.html')
+                | Government of India has introduced a pension scheme for unorganised workers namely Pradhan Mantri Shram Yogi Maan-dhan (PM-SYM) to ensure old age protection for Unorganised Workers
+            // <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias architecto enim non iste maxime optio, ut com</p>
       .col-md-3.d-flex.ftco-animate
         .blog-entry.align-self-stretch
-          a.block-20(href='blog-single.html' style="background-image: url('images/image_2.jpg');")
+          a.block-20(href='blog-ddugky.html' style="background-color:whitesmoke;background-image: url('images/image_2.jpg');")
           .text.mt-3
-            .meta.mb-2
-              div
-                a(href='#') December 2, 2018
-              div
-                a(href='#') Admin
-              div
-                a.meta-chat(href='#')
-                  span.icon-chat
-                  |  3
-            h3.heading
-              a(href='#') Even the all-powerful Pointing has no control about the blind texts
-            p
-              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet nobis natus incidunt officia assumenda.
+            //
+              <div class="meta mb-2">
+              <div><a href="#">December 2, 2018</a></div>
+              <div><a href="#">Admin</a></div>
+              <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+              </div>
+            h6.heading
+              a(href='blog-ddugky.html')
+                | The Ministry of Rural Development announced DDU-GKY, tasked with the dual objectives of adding diversity to the incomes of poor families and cater to the career aspirations of rural youth.
+            // <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet nobis natus incidunt officia assumenda.</p>
       .col-md-3.d-flex.ftco-animate
         .blog-entry.align-self-stretch
-          a.block-20(href='blog-single.html' style="background-image: url('images/image_3.jpg');")
+          a.block-20(href='blog-MGNREGA.html' style="background-image: url('images/image_3.jpg');")
           .text.mt-3
-            .meta.mb-2
-              div
-                a(href='#') December 2, 2018
-              div
-                a(href='#') Admin
-              div
-                a.meta-chat(href='#')
-                  span.icon-chat
-                  |  3
-            h3.heading
-              a(href='#') Even the all-powerful Pointing has no control about the blind texts
-            p
-              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi obcaecati praesentium,
+            //
+              <div class="meta mb-2">
+              <div><a href="#">December 2, 2018</a></div>
+              <div><a href="#">Admin</a></div>
+              <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+              </div>
+            h6.heading
+              a(href='blog-MGNREGA.html')
+                | The Mahatma Gandhi National Rural Employment Guarantee Act aims at enhancing livelihood security of people in rural areas by guaranteeing 100 days wage-employment in a year to a rural household.
+            // <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi obcaecati praesentium,</p>
       .col-md-3.d-flex.ftco-animate
         .blog-entry.align-self-stretch
-          a.block-20(href='blog-single.html' style="background-image: url('images/image_4.jpg');")
+          a.block-20(href='blog-NRLM.html' style="background-image: url('images/image_4.jpg');")
           .text.mt-3
-            .meta.mb-2
-              div
-                a(href='#') December 2, 2018
-              div
-                a(href='#') Admin
-              div
-                a.meta-chat(href='#')
-                  span.icon-chat
-                  |  3
-            h3.heading
-              a(href='#') Even the all-powerful Pointing has no control about the blind texts
-            p
-              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor minima, dolores quis, dolorum accusamu
+            //
+              <div class="meta mb-2">
+              <div><a href="#">December 2, 2018</a></div>
+              <div><a href="#">Admin</a></div>
+              <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+              </div>
+            h6.heading
+              a(href='blog-NRLM.html')
+                | National Rural Livelihoods Mission aims at creating institutional platforms enabling rural poor to increase income through livelihood enhancements and improved access to financial services.
+            // <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor minima, dolores quis, dolorum accusamu</p>
       .col-md-3.d-flex.ftco-animate
         .blog-entry.align-self-stretch
-          a.block-20(href='blog-single.html' style="background-image: url('images/image_5.jpg');")
+          a.block-20(href='blog-RSBY.html' style="background-image: url('images/image_5.jpg');")
           .text.mt-3
-            .meta.mb-2
-              div
-                a(href='#') December 2, 2018
-              div
-                a(href='#') Admin
-              div
-                a.meta-chat(href='#')
-                  span.icon-chat
-                  |  3
-            h3.heading
-              a(href='#') Even the all-powerful Pointing has no control about the blind texts
-            p
-              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias architecto enim non iste maxime optio, ut com
+            //
+              <div class="meta mb-2">
+              <div><a href="#">December 2, 2018</a></div>
+              <div><a href="#">Admin</a></div>
+              <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+              </div>
+            h6.heading
+              a(href='blog-RSBY.html')
+                | Rashtriya Swasthya Bima Yojana is a government-run health insurance programme for the Indian poor, that aims to provide health insurance coverage to the unrecognised sector workers belonging to the BPL category and their family members.
+            // <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias architecto enim non iste maxime optio, ut com</p>
       .col-md-3.d-flex.ftco-animate
         .blog-entry.align-self-stretch
-          a.block-20(href='blog-single.html' style="background-image: url('images/image_6.jpg');")
+          a.block-20(href='blog-CSWB.html' style="background-image: url('images/image_6.jpg');")
           .text.mt-3
-            .meta.mb-2
-              div
-                a(href='#') December 2, 2018
-              div
-                a(href='#') Admin
-              div
-                a.meta-chat(href='#')
-                  span.icon-chat
-                  |  3
-            h3.heading
-              a(href='#') Even the all-powerful Pointing has no control about the blind texts
-            p
-              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet nobis natus incidunt officia assumenda.
+            //
+              <div class="meta mb-2">
+              <div><a href="#">December 2, 2018</a></div>
+              <div><a href="#">Admin</a></div>
+              <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+              </div>
+            h6.heading
+              a(href='blog-CSWB.html')
+                | The CSWB was established to carry out welfare activities for women and children. CSWB has made remarkable contribution for the weaker and marginalized sections of the society.
+            // <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet nobis natus incidunt officia assumenda.</p>
       .col-md-3.d-flex.ftco-animate
         .blog-entry.align-self-stretch
-          a.block-20(href='blog-single.html' style="background-image: url('images/image_7.jpg');")
+          a.block-20(href='blog-MKSP.html' style="background-image: url('images/image_7.jpg');")
           .text.mt-3
-            .meta.mb-2
-              div
-                a(href='#') December 2, 2018
-              div
-                a(href='#') Admin
-              div
-                a.meta-chat(href='#')
-                  span.icon-chat
-                  |  3
+            //
+              <div class="meta mb-2">
+              <div><a href="#">December 2, 2018</a></div>
+              <div><a href="#">Admin</a></div>
+              <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+              </div>
             h3.heading
-              a(href='#') Even the all-powerful Pointing has no control about the blind texts
-            p
-              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi obcaecati praesentium,
+              a(href='blog-MKSP.html')
+                | To improve the present status of women in Agriculture, and to enhance opportunities for empowerment, Govt. of India has announced &ldquo;Mahila Kisan Sashaktikaran Pariyojana&rdquo; (MKSP).
+            // <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi obcaecati praesentium,</p>
       .col-md-3.d-flex.ftco-animate
         .blog-entry.align-self-stretch
-          a.block-20(href='blog-single.html' style="background-image: url('images/image_8.jpg');")
+          a.block-20(href='blog-MSY.html' style="background-image: url('images/image_8.jpg');")
           .text.mt-3
-            .meta.mb-2
-              div
-                a(href='#') December 2, 2018
-              div
-                a(href='#') Admin
-              div
-                a.meta-chat(href='#')
-                  span.icon-chat
-                  |  3
-            h3.heading
-              a(href='#') Even the all-powerful Pointing has no control about the blind texts
-            p
-              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor minima, dolores quis, dolorum accusamu
-    .row.mt-5
-      .col.text-center
-        .block-27
-          ul
-            li
-              a(href='#') &lt;
-            li.active
-              span 1
-            li
-              a(href='#') 2
-            li
-              a(href='#') 3
-            li
-              a(href='#') 4
-            li
-              a(href='#') 5
-            li
-              a(href='#') &gt;
-section.ftco-section-parallax
-  .parallax-img.d-flex.align-items-center
-    .container
-      .row.d-flex.justify-content-center
-        .col-md-7.text-center.heading-section.heading-section-white.ftco-animate
-          h2 Subcribe to our Newsletter
-          p
-            | Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in
-          .row.d-flex.justify-content-center.mt-4.mb-4
-            .col-md-8
-              form.subscribe-form(action='#')
-                .form-group.d-flex
-                  input.form-control(type='text' placeholder='Enter email address')
-                  input.submit.px-3(type='submit' value='Subscribe')
-footer.ftco-footer.ftco-bg-dark.ftco-section
-  .container
-    .row.mb-5
-      .col-md
-        .ftco-footer-widget.mb-4
-          h2.ftco-heading-2 About
-          p
-            | Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
-          ul.ftco-footer-social.list-unstyled.float-md-left.float-lft.mt-3
-            li.ftco-animate
-              a(href='#')
-                span.icon-twitter
-            li.ftco-animate
-              a(href='#')
-                span.icon-facebook
-            li.ftco-animate
-              a(href='#')
-                span.icon-instagram
-      .col-md
-        .ftco-footer-widget.mb-4
-          h2.ftco-heading-2 Employers
-          ul.list-unstyled
-            li
-              a.py-2.d-block(href='#') How it works
-            li
-              a.py-2.d-block(href='#') Register
-            li
-              a.py-2.d-block(href='#') Post a Job
-            li
-              a.py-2.d-block(href='#') Advance Skill Search
-            li
-              a.py-2.d-block(href='#') Recruiting Service
-            li
-              a.py-2.d-block(href='#') Blog
-            li
-              a.py-2.d-block(href='#') Faq
-      .col-md
-        .ftco-footer-widget.mb-4.ml-md-4
-          h2.ftco-heading-2 Workers
-          ul.list-unstyled
-            li
-              a.py-2.d-block(href='#') How it works
-            li
-              a.py-2.d-block(href='#') Register
-            li
-              a.py-2.d-block(href='#') Post Your Skills
-            li
-              a.py-2.d-block(href='#') Job Search
-            li
-              a.py-2.d-block(href='#') Emploer Search
-      .col-md
-        .ftco-footer-widget.mb-4
-          h2.ftco-heading-2 Have a Questions?
-          .block-23.mb-3
-            ul
-              li
-                span.icon.icon-map-marker
-                span.text 203 Fake St. Mountain View, San Francisco, California, USA
-              li
-                a(href='#')
-                  span.icon.icon-phone
-                  span.text +2 392 3929 210
-              li
-                a(href='#')
-                  span.icon.icon-envelope
-                  span.text info@yourdomain.com
-    .row
-      .col-md-12.text-center
-        p
-          // Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
-          | Copyright &copy;
-          script.
-            document.write(new Date().getFullYear());
-          |  All rights reserved | This template is made with 
-          i.icon-heart.text-danger(aria-hidden='true')
-          |  by 
-          a(href='https://colorlib.com' target='_blank') Colorlib
-          // Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
+            //
+              <div class="meta mb-2">
+              <div><a href="#">December 2, 2018</a></div>
+              <div><a href="#">Admin</a></div>
+              <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+              </div>
+            h6.heading
+              a(href='blog-MSY.html')
+                | Ministry of Social Justice and Empowerment has introduced Mahila Samridhi Yojana (MSY) for providing loan to rural women entrepreneur from backward classes only.
+            // <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor minima, dolores quis, dolorum accusamu</p>
+    //
+      <div class="row mt-5">
+      <div class="col text-center">
+      <div class="block-27">
+      <ul>
+      <li><a href="#">&lt;</a></li>
+      <li class="active"><span>1</span></li>
+      <li><a href="#">2</a></li>
+      <li><a href="#">3</a></li>
+      <li><a href="#">4</a></li>
+      <li><a href="#">5</a></li>
+      <li><a href="#">&gt;</a></li>
+      </ul>
+      </div>
+      </div>
+      </div>
+//
+  <section class="ftco-section-parallax">
+  <div class="parallax-img d-flex align-items-center">
+  <div class="container">
+  <div class="row d-flex justify-content-center">
+  <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
+  <h2>Subcribe to our Newsletter</h2>
+  <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p>
+  <div class="row d-flex justify-content-center mt-4 mb-4">
+  <div class="col-md-8">
+  <form action="#" class="subscribe-form">
+  <div class="form-group d-flex">
+  <input type="text" class="form-control" placeholder="Enter email address">
+  <input type="submit" value="Subscribe" class="submit px-3">
+  </div>
+  </form>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </section>
+  <footer class="ftco-footer ftco-bg-dark ftco-section">
+  <div class="container">
+  <div class="row mb-5">
+  <div class="col-md">
+  <div class="ftco-footer-widget mb-4">
+  <h2 class="ftco-heading-2">About</h2>
+  <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+  <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
+  <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+  <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+  <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+  </ul>
+  </div>
+  </div>
+  <div class="col-md">
+  <div class="ftco-footer-widget mb-4">
+  <h2 class="ftco-heading-2">Employers</h2>
+  <ul class="list-unstyled">
+  <li><a href="#" class="py-2 d-block">How it works</a></li>
+  <li><a href="#" class="py-2 d-block">Register</a></li>
+  <li><a href="#" class="py-2 d-block">Post a Job</a></li>
+  <li><a href="#" class="py-2 d-block">Advance Skill Search</a></li>
+  <li><a href="#" class="py-2 d-block">Recruiting Service</a></li>
+  <li><a href="#" class="py-2 d-block">Blog</a></li>
+  <li><a href="#" class="py-2 d-block">Faq</a></li>
+  </ul>
+  </div>
+  </div>
+  <div class="col-md">
+  <div class="ftco-footer-widget mb-4 ml-md-4">
+  <h2 class="ftco-heading-2">Workers</h2>
+  <ul class="list-unstyled">
+  <li><a href="#" class="py-2 d-block">How it works</a></li>
+  <li><a href="#" class="py-2 d-block">Register</a></li>
+  <li><a href="#" class="py-2 d-block">Post Your Skills</a></li>
+  <li><a href="#" class="py-2 d-block">Job Search</a></li>
+  <li><a href="#" class="py-2 d-block">Emploer Search</a></li>
+  </ul>
+  </div>
+  </div>
+  <div class="col-md">
+  <div class="ftco-footer-widget mb-4">
+  <h2 class="ftco-heading-2">Have a Questions?</h2>
+  <div class="block-23 mb-3">
+  <ul>
+  <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
+  <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
+  <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+  </ul>
+  </div>
+  </div>
+  </div>
+  </div>
+  <div class="row">
+  <div class="col-md-12 text-center">
+  <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.</p>
+  </div>
+  </div>
+  </div>
+  </footer>
 // loader
 #ftco-loader.show.fullscreen
   svg.circular(width='48px' height='48px')
@@ -320,3 +296,20 @@ script(src='js/scrollax.min.js')
 script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false')
 script(src='js/google-map.js')
 script(src='js/main.js')
+script(src='js/bootstrap-show-modal.js')
+script(type='text/javascript').
+  var isLoggedIn=#{loggedIn};
+  $( document ).ready(function() {
+  isLoggedIn=#{loggedIn};
+  if(isLoggedIn){
+  document.getElementById("rclogin").style.display = "none";
+  document.getElementById("logusername").style.display = "block";
+  document.getElementById("logout").style.display = "block";
+  document.getElementById("logusername").innerText = "Welcome "+"#{usernm}";
+  }
+  else{
+  document.getElementById("rclogin").style.display = "block";
+  document.getElementById("logusername").style.display = "none";
+  document.getElementById("logout").style.display = "none";
+  }
+  });

@@ -1,0 +1,162 @@
+doctype html
+head
+  meta(charset='utf-8')
+  title KaamYaab India
+  // Mobile Specific Metas
+  meta(name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1')
+  // Font
+  link(rel='stylesheet' type='text/css' href='css/opensans-font.css')
+  link(rel='stylesheet' type='text/css' href='fonts/material-design-iconic-font/css/material-design-iconic-font.min.css')
+  // Main Style Css
+  link(rel='stylesheet' href='css/stylelogin.css')
+  script(type='text/javascript' src='js/cities.js')
+.page-content
+  .form-v1-content
+    .wizard-form
+      form#compreg.form-register(action='/registercomp' method='post')
+        #form-total
+          // SECTION 1
+          h2
+            p.step-icon
+              span 01
+            span.step-text Personal Information
+          section
+            .inner
+              .wizard-header
+                h3.heading Personal Information
+                p
+                  | Please enter your information and proceed to the next step to create your account.
+              .form-row
+                .form-holder
+                  fieldset
+                    legend First Name
+                    input#firstname.form-control(type='text' name='firstname' placeholder='First Name' required='')
+                .form-holder
+                  fieldset
+                    legend Last Name
+                    input#lastname.form-control(type='text' name='lastname' placeholder='Last Name' required='')
+              .form-row
+                .form-holder.form-holder-2
+                  fieldset
+                    legend Your Email
+                    input#your_email.form-control(type='text' name='your_email' pattern='[^@]+@[^@]+.[a-zA-Z]{2,6}' placeholder='example@email.com' required='')
+              .form-row
+                .form-holder
+                  fieldset
+                    legend Phone Number
+                    input#phone.form-control(type='text' name='phone' placeholder='+1 888-999-7777' required='')
+                .form-holder
+                  fieldset
+                    legend Birth Date
+                    input#dob.form-control(style='width:150px' type='date' value='2004-02-09')
+              .form-row
+                .form-holder
+                  fieldset(style='height: 110px')
+                    legend Address
+                    textarea#address.form-control(style='border: none' rows='5' name='address' placeholder='123 Main St.' required='')
+                .form-holder(style='margin-top:7px')
+                  select#stt.form-control(onchange="print_city('city2', this.selectedIndex);" name='stt' required='')
+                  hr
+                  select#city2.form-control(name='city2' required='')
+              .form-row
+                .form-holder
+                  fieldset
+                    legend Zipcode
+                    input#zip.form-control(type='text' name='zip' placeholder='123443' required='')
+              .form-holder
+                label.radio-inline
+                  input(type='radio' name='optradio' checked='')
+                  | Male
+                label.radio-inline
+                  input(type='radio' name='optradio')
+                  | Female
+                label.radio-inline
+                  input(type='radio' name='optradio')
+                  | Trans
+          // SECTION 2
+          h2
+            p.step-icon
+              span 02
+            span.step-text Identity
+          section
+            .inner
+              .wizard-header
+                h3.heading Identity
+                p Please enter your identification details and proceed to the next step.
+              .form-holder
+                label.radio-inline
+                  input(type='radio' name='optradio' checked='')
+                  | Family
+                label.radio-inline
+                  input(type='radio' name='optradio')
+                  | Company
+              .form-row
+                .form-holder
+                  fieldset
+                    legend Profession
+                    input#Profession.form-control(type='text' name='Profession' placeholder='Profession' required='')
+                .form-holder
+                  fieldset
+                    legend Industry
+                    input#industry.form-control(type='text' name='industry' placeholder='Industry' required='')
+              .form-row
+                .form-holder.form-holder-2
+                  fieldset
+                    legend Your Aadhar Number
+                    input#aadhar.form-control(type='text' name='aadhar' pattern='{2,6}' placeholder='123456123456' required='')
+              .form-row
+                .form-holder.form-holder-2
+                  fieldset
+                    legend Organization Name
+                    input#org_name.form-control(type='text' name='org_name' placeholder='Organization Name' required='')
+              .form-row
+                .form-holder.form-holder-2
+                  fieldset
+                    legend Organization PAN
+                    input#orgpan.form-control(type='text' name='orgpan' placeholder='Organization PAN' required='')
+          // SECTION 3
+          h2
+            p.step-icon
+              span 03
+            span.step-text Verfication
+          section
+            .inner
+              .wizard-header
+                h3.heading Verfication
+                p
+                  | Please enter the OTP you received on your mobile and proceed to set login credentials
+              .form-row
+                .form-holder.form-holder-1
+                  input#find_bank.form-control(type='number' name='find_bank' placeholder='Enter OTP' required='')
+              .form-row-total
+          // SECTION 4
+          h2
+            p.step-icon
+              span 04
+            span.step-text Login Details
+          section
+            .inner
+              .wizard-header
+                h3.heading Login Account
+                p Please set your login credentials to complete the registration.
+              .form-row
+                .form-holder.form-holder-2
+                  fieldset
+                    legend Enter Username
+                    input#username.form-control(type='text' name='username' placeholder='User 1' required='')
+              .form-row
+                .form-holder.form-holder-2
+                  fieldset
+                    legend Enter Password
+                    input#password.form-control(type='password' name='password' placeholder='****' required='')
+              .form-row
+                .form-holder.form-holder-2
+                  fieldset
+                    legend Confirm password
+                    input#cpassword.form-control(type='password' name='cpassword' placeholder='****' required='')
+script(src='js/jquery-3.3.1.min.js')
+script(src='js/jquery.steps.js')
+script(src='js/mainlogin1.js')
+script(language='javascript').
+  print_state("stt");
+// This templates was made by Colorlib (https://colorlib.com)

@@ -1,10 +1,6 @@
 var express = require('express');
 var session = require('express-session');
-var mysql = require('mysql');
 const path = require('path');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-
 const pageRouter = require('./routes/pages');
 const bodyParser = require('body-parser');
 
@@ -18,16 +14,13 @@ var PORT = process.env.PORT || 8090;
 //app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-app.use(logger('dev'));
 // parse application/json
 app.use(bodyParser.json());
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: 'application/*+json' }))
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
 // session
 app.use(session({
     secret:'app',
@@ -38,45 +31,18 @@ app.use(session({
     }
 }));
 
-var ibmdb = require('ibm_db');
-
-ibmdb.open("DATABASE=BLUDB;HOSTNAME=dashdb-txn-sbox-yp-lon02-02.services.eu-gb.bluemix.net;UID=qzm21635;PWD=92wzcpxxdmz9cw+c;PORT=50000;PROTOCOL=TCPIP", function (err,conn) {
-  if (err) return console.log(err);
-
-  conn.query('select 1 from sysibm.sysdummy1', function (err, data) {
-    if (err) console.log(err);
-    else console.log(data);
-
-    conn.close(function () {
-      console.log('done');
-    });
-  });
-});
-
-var checkUser=function(req,res,next){
-  if(req.session.loggedIn){
-    next();
-  }else{
-  var admin="admin", password="admin";
-    if(req.body.username===admin && req.body.password===password){
-      req.session.loggedIn=true;
-      res.redirect('/');
-    }else{
-      res.render('login',{title:"Login Here"});
-    }
-//    res.render('login',{title:"Login Here"});
-  }
-};
-
-var logout=function(req,res,next){
-  req.session.loggedIn=false;
-  res.redirect('/');
-};
-//app.use('/',checkUser, index);
-//  Login Work Start End
-//app.use('/users', users);
-
-
+//var ibmdb = require('ibm_db');
+//
+//ibmdb.open("DATABASE=BLUDB;HOSTNAME=dashdb-txn-sbox-yp-lon02-02.services.eu-gb.bluemix.net;UID=qzm21635;PWD=92wzcpxxdmz9cw+c;PORT=50000;PROTOCOL=TCPIP", function (err,conn) {
+//  if (err) return console.log(err);
+//  conn.query('select 1 from sysibm.sysdummy1', function (err, data) {
+//    if (err) console.log(err);
+//    else console.log(data);
+//    conn.close(function () {
+//      console.log('done');
+//    });
+//  });
+//});
 var env = require('dotenv').config();
 
 //const cn = "DSN=usrProd;UID=username1;PWD=password1";
@@ -102,8 +68,7 @@ database: 'jobsindia'
 connection.connect(function(err){
     if (err) throw err;
     console.log('Connected');
-});
-*/
+});*/
 
 // Routers
 app.use('/', pageRouter);

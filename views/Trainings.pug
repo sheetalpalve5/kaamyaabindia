@@ -1,6 +1,6 @@
 doctype html
 head
-  title JobPortal - Free Bootstrap 4 Template by Colorlib
+  title KaamYaab India
   meta(charset='utf-8')
   meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
   link(href='https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900' rel='stylesheet')
@@ -16,28 +16,35 @@ head
   link(rel='stylesheet' href='css/flaticon.css')
   link(rel='stylesheet' href='css/icomoon.css')
   link(rel='stylesheet' href='css/style.css')
+  link(rel='stylesheet' href='css/bootstrap/bootstrap.min.css')
 nav#ftco-navbar.navbar.navbar-expand-lg.navbar-dark.ftco_navbar.bg-dark.ftco-navbar-light
   .container
-    a.navbar-brand(href='index.html') JobPortal
+    a.navbar-brand(href='index.html')
+      img(src='images/icon.jpeg' alt='Img' width='40' height='40')
+      |   KaamYaab India
     button.navbar-toggler(type='button' data-toggle='collapse' data-target='#ftco-nav' aria-controls='ftco-nav' aria-expanded='false' aria-label='Toggle navigation')
       span.oi.oi-menu
       |  Menu
     #ftco-nav.collapse.navbar-collapse
       ul.navbar-nav.ml-auto
+        li.nav-item
+          a.nav-link(href='/') Home
+        li.nav-item
+          a.nav-link(href='/about') About
         li.nav-item.active
-          a.nav-link(href='index.html') Home
+          a.nav-link(href='/training') Trainings
         li.nav-item
-          a.nav-link(href='about.html') About
+          a.nav-link(href='/blog') Financial Options
         li.nav-item
-          a.nav-link(href='blog.html') Trainings
-        li.nav-item
-          a.nav-link(href='contact.html') Contact
+          a.nav-link(href='/contact') Contact
         li.nav-item.cta.mr-md-1
-          a#rc.nav-link(href='new-post.html') Recruiter
-        li.nav-item.cta.mr-md-2
-          a#emplogin.nav-link(href='/empregister') Employee
+          a#rclogin.nav-link(href='/loginpage') Login
+        li.nav-item
+          a#logusername.nav-link(href='#' style='display:none;') Welcome #{user}
+        li.nav-item
+          a#logout.nav-link(href='/logout' style='display:none;') Logout
 // END nav
-.hero-wrap.js-fullheight(style="background-image: url('images/new5.jpeg');" data-stellar-background-ratio='0.5')
+.hero-wrap.js-fullheight(style="background-image: url('images/training2.jpg');" data-stellar-background-ratio='0.5')
   .overlay
   .container
     .row.no-gutters.slider-text.js-fullheight.align-items-end.justify-content-start(data-scrollax-parent='true')
@@ -54,7 +61,7 @@ section.ftco-section.bg-light
     .row.d-flex
       .col-md-3.d-flex.ftco-animate
         .blog-entry.align-self-stretch
-          a.block-20(href='blog-single.html' style="background-image: url('images/stitching1.jpg');")
+          a.block-20(href='https://www.youtube.com/watch?v=yMn7RE7Fze8' style="background-image: url('images/stitching1.jpg');")
           .text.mt-3
             .meta.mb-2
               div
@@ -70,7 +77,7 @@ section.ftco-section.bg-light
             p Sewing Lesson 1 in Hindi. Be a Self Employed Tailor and Start your journey!
       .col-md-3.d-flex.ftco-animate
         .blog-entry.align-self-stretch
-          a.block-20(href='blog-single.html' style="background-image: url('images/stitching2.jpg');")
+          a.block-20(href='https://www.youtube.com/watch?v=Ef_aZLd9hOk' style="background-image: url('images/stitching2.jpg');")
           .text.mt-3
             .meta.mb-2
               div
@@ -86,7 +93,7 @@ section.ftco-section.bg-light
             p Session 1 in Hindi. Join the series from basics to advanced.
       .col-md-3.d-flex.ftco-animate
         .blog-entry.align-self-stretch
-          a.block-20(href='blog-single.html' style="background-image: url('images/stitching3.jpg');")
+          a.block-20(href='ttps://www.youtube.com/watch?v=pbRiVEEC4ZA' style="background-image: url('images/stitching3.jpg');")
           .text.mt-3
             .meta.mb-2
               div
@@ -102,7 +109,7 @@ section.ftco-section.bg-light
             p Step by Step direction and tutorial in Hindi.
       .col-md-3.d-flex.ftco-animate
         .blog-entry.align-self-stretch
-          a.block-20(href='blog-single.html' style="background-image: url('images/stitching4.jpg');")
+          a.block-20(href='https://www.youtube.com/watch?v=FPrVuaiu92s' style="background-image: url('images/stitching4.jpg');")
           .text.mt-3
             .meta.mb-2
               div
@@ -118,7 +125,7 @@ section.ftco-section.bg-light
             p Learn the tricks and techniques to become an expert in tailoring
       .col-md-3.d-flex.ftco-animate
         .blog-entry.align-self-stretch
-          a.block-20(href='blog-single.html' style="background-image: url('images/cook1.jpg');")
+          a.block-20(href='https://www.youtube.com/watch?v=wnHxGBnLP5w' style="background-image: url('images/cook1.jpg');")
           .text.mt-3
             .meta.mb-2
               div
@@ -134,7 +141,7 @@ section.ftco-section.bg-light
             p How to Learn Indian Cooking in 5 days. Beginner tutorial
       .col-md-3.d-flex.ftco-animate
         .blog-entry.align-self-stretch
-          a.block-20(href='blog-single.html' style="background-image: url('images/cook2.jpg');")
+          a.block-20(href='https://www.youtube.com/watch?v=DsZr3U4Clf0&t=298s' style="background-image: url('images/cook2.jpg');")
           .text.mt-3
             .meta.mb-2
               div
@@ -146,152 +153,184 @@ section.ftco-section.bg-light
                   span.icon-chat
                   |  1
             h3.heading
-              a(href='https://www.youtube.com/watch?v=DsZr3U4Clf0&t=298s') Punjabi Style Rajma masala in Hindi
+              a(href='c') Punjabi Style Rajma masala in Hindi
             p Learn Punjabi Cuisine and more to enable cook skills
       .col-md-3.d-flex.ftco-animate
         .blog-entry.align-self-stretch
-          a.block-20(href='blog-single.html' style="background-image: url('images/cook3.jpg');")
+          a.block-20(href='https://www.youtube.com/watch?v=W1IFbmxfVh0' style="background-image: url('images/cook3.jpeg');")
           .text.mt-3
             .meta.mb-2
               div
-                a(href='#') December 2, 2018
+                a(href='#') Cooking
               div
-                a(href='#') Admin
+                a(href='#') Free Tutorial
               div
                 a.meta-chat(href='#')
                   span.icon-chat
-                  |  3
+                  |  1
             h3.heading
-              a(href='#') Even the all-powerful Pointing has no control about the blind texts
+              a(href='https://www.youtube.com/watch?v=W1IFbmxfVh0') Classic Pancake Recipe to make soft and fluffy pancakes
             p
-              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi obcaecati praesentium,
+              | With the tips shared in this video, you&apos;ll know how to make them in no time and any beginner can do this recipe
       .col-md-3.d-flex.ftco-animate
         .blog-entry.align-self-stretch
-          a.block-20(href='blog-single.html' style="background-image: url('images/cook4.jpg');")
+          a.block-20(href='https://www.youtube.com/watch?v=2PT3lvVfuYY' style="background-image: url('images/cook4.jpg');")
           .text.mt-3
             .meta.mb-2
               div
-                a(href='#') December 2, 2018
+                a(href='#') Cooking
               div
-                a(href='#') Admin
+                a(href='#') Free Tutorial
               div
                 a.meta-chat(href='#')
                   span.icon-chat
-                  |  3
+                  |  1
             h3.heading
-              a(href='#') Even the all-powerful Pointing has no control about the blind texts
+              a(href='https://www.youtube.com/watch?v=2PT3lvVfuYY') Masala Dosa Recipe for Breakfast
             p
-              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor minima, dolores quis, dolorum accusamu
-    .row.mt-5
-      .col.text-center
-        .block-27
-          ul
-            li
-              a(href='#') &lt;
-            li.active
-              span 1
-            li
-              a(href='#') 2
-            li
-              a(href='#') 3
-            li
-              a(href='#') 4
-            li
-              a(href='#') 5
-            li
-              a(href='#') &gt;
-section.ftco-section-parallax
-  .parallax-img.d-flex.align-items-center
-    .container
-      .row.d-flex.justify-content-center
-        .col-md-7.text-center.heading-section.heading-section-white.ftco-animate
-          h2 Subcribe to our Newsletter
-          p
-            | Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in
-          .row.d-flex.justify-content-center.mt-4.mb-4
-            .col-md-8
-              form.subscribe-form(action='#')
-                .form-group.d-flex
-                  input.form-control(type='text' placeholder='Enter email address')
-                  input.submit.px-3(type='submit' value='Subscribe')
-footer.ftco-footer.ftco-bg-dark.ftco-section
-  .container
-    .row.mb-5
-      .col-md
-        .ftco-footer-widget.mb-4
-          h2.ftco-heading-2 About
-          p
-            | Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
-          ul.ftco-footer-social.list-unstyled.float-md-left.float-lft.mt-3
-            li.ftco-animate
-              a(href='#')
-                span.icon-twitter
-            li.ftco-animate
-              a(href='#')
-                span.icon-facebook
-            li.ftco-animate
-              a(href='#')
-                span.icon-instagram
-      .col-md
-        .ftco-footer-widget.mb-4
-          h2.ftco-heading-2 Employers
-          ul.list-unstyled
-            li
-              a.py-2.d-block(href='#') How it works
-            li
-              a.py-2.d-block(href='#') Register
-            li
-              a.py-2.d-block(href='#') Post a Job
-            li
-              a.py-2.d-block(href='#') Advance Skill Search
-            li
-              a.py-2.d-block(href='#') Recruiting Service
-            li
-              a.py-2.d-block(href='#') Blog
-            li
-              a.py-2.d-block(href='#') Faq
-      .col-md
-        .ftco-footer-widget.mb-4.ml-md-4
-          h2.ftco-heading-2 Workers
-          ul.list-unstyled
-            li
-              a.py-2.d-block(href='#') How it works
-            li
-              a.py-2.d-block(href='#') Register
-            li
-              a.py-2.d-block(href='#') Post Your Skills
-            li
-              a.py-2.d-block(href='#') Job Search
-            li
-              a.py-2.d-block(href='#') Emploer Search
-      .col-md
-        .ftco-footer-widget.mb-4
-          h2.ftco-heading-2 Have a Questions?
-          .block-23.mb-3
-            ul
-              li
-                span.icon.icon-map-marker
-                span.text 203 Fake St. Mountain View, San Francisco, California, USA
-              li
-                a(href='#')
-                  span.icon.icon-phone
-                  span.text +2 392 3929 210
-              li
-                a(href='#')
-                  span.icon.icon-envelope
-                  span.text info@yourdomain.com
-    .row
-      .col-md-12.text-center
-        p
-          // Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
-          | Copyright &copy;
-          script.
-            document.write(new Date().getFullYear());
-          |  All rights reserved | This template is made with 
-          i.icon-heart.text-danger(aria-hidden='true')
-          |  by 
-          a(href='https://colorlib.com' target='_blank') Colorlib
-          // Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
+              | Learn how to make easy south Indian style best famous, delicious and tasty Masala Dosa recipe at home
+      .col-md-3.d-flex.ftco-animate
+        .blog-entry.align-self-stretch
+          a.block-20(href='https://www.youtube.com/watch?v=wDxwJO85A3g' style="background-image: url('images/cashier1.jpeg');")
+          .text.mt-3
+            .meta.mb-2
+              div
+                a(href='#') Cashier
+              div
+                a(href='#') Free Trainings
+              div
+                a.meta-chat(href='#')
+                  span.icon-chat
+                  |  1
+            h3.heading
+              a(href='https://www.youtube.com/watch?v=wDxwJO85A3g') Big Bazaar Cashier Job Full Detail In Hindi
+            p How to apply job at big bazar, complete experience and job details
+      .col-md-3.d-flex.ftco-animate
+        .blog-entry.align-self-stretch
+          a.block-20(href='https://www.youtube.com/watch?v=geL6vTukgsc' style="background-image: url('images/cashier2.jpeg');")
+          .text.mt-3
+            .meta.mb-2
+              div
+                a(href='#') Cashier
+              div
+                a(href='#') Free Trainings
+              div
+                a.meta-chat(href='#')
+                  span.icon-chat
+                  |  1
+            h3.heading
+              a(href='https://www.youtube.com/watch?v=geL6vTukgsc') Cashiering Skills Training Workshop
+            p Trining for customer service and retail cashiers with noexperience
+      .col-md-3.d-flex.ftco-animate
+        .blog-entry.align-self-stretch
+          a.block-20(href='https://www.youtube.com/watch?v=DuUpzYVlFrA' style="background-image: url('images/cashier3.jpeg');")
+          .text.mt-3
+            .meta.mb-2
+              div
+                a(href='#') Cashier
+              div
+                a(href='#') Free Trainings
+              div
+                a.meta-chat(href='#')
+                  span.icon-chat
+                  |  1
+            h3.heading
+              a(href='https://www.youtube.com/watch?v=DuUpzYVlFrA') Customer Service in Retail Store
+            p Best Customer Service in a Retail Store from Customer Entry to Customer Exit..
+      .col-md-3.d-flex.ftco-animate
+        .blog-entry.align-self-stretch
+          a.block-20(href='https://www.youtube.com/watch?v=RvgiV8GlmtY' style="background-image: url('images/cashier4.jpeg');")
+          .text.mt-3
+            .meta.mb-2
+              div
+                a(href='#') Delivery Boy
+              div
+                a(href='#') Free Training
+              div
+                a.meta-chat(href='#')
+                  span.icon-chat
+                  |  1
+            h3.heading
+              a(href='https://www.youtube.com/watch?v=RvgiV8GlmtY') How to join Uber Eats delivery boy?
+            p &#x915;&#x94D;&#x92F;&#x93E; Process? &#x915;&#x93F;&#x924;&#x928;&#x93E; salary? incentives &#x915;&#x93F;&#x924;&#x928;&#x93E;?
+      .col-md-3.d-flex.ftco-animate
+        .blog-entry.align-self-stretch
+          a.block-20(href='https://www.youtube.com/watch?v=lpbcjcT-Lv0' style="background-image: url('images/gardening1.jpeg');")
+          .text.mt-3
+            .meta.mb-2
+              div
+                a(href='#') Gardening
+              div
+                a(href='#') Tips and Tricks
+              div
+                a.meta-chat(href='#')
+                  span.icon-chat
+                  |  1
+            h3.heading
+              a(href='https://www.youtube.com/watch?v=lpbcjcT-Lv0') Mali or Gardener certificate or Gardening training
+            p
+              | Mali or Gardener is a Group &lsquo;C&rsquo; position in the Pay Band-1 in Govt, Job advertisements
+      .col-md-3.d-flex.ftco-animate
+        .blog-entry.align-self-stretch
+          a.block-20(href='https://www.youtube.com/watch?v=V061zW5wok4' style="background-image: url('images/gardening2.jpeg');")
+          .text.mt-3
+            .meta.mb-2
+              div
+                a(href='#') Gardening
+              div
+                a(href='#') Tips and Tricks
+              div
+                a.meta-chat(href='#')
+                  span.icon-chat
+                  |  1
+            h3.heading
+              a(href='https://www.youtube.com/watch?v=V061zW5wok4') 20 Gardening Tips you must know
+            p 20 Essential and must Know Gardening Tips
+      .col-md-3.d-flex.ftco-animate
+        .blog-entry.align-self-stretch
+          a.block-20(href='https://www.youtube.com/watch?v=Cg3Mu-hxodg' style="background-image: url('images/gardening3.jpeg');")
+          .text.mt-3
+            .meta.mb-2
+              div
+                a(href='#') Gardening
+              div
+                a(href='#') Tips and Tricks
+              div
+                a.meta-chat(href='#')
+                  span.icon-chat
+                  |  1
+            h3.heading
+              a(href='https://www.youtube.com/watch?v=Cg3Mu-hxodg') Best Vegetables Grow at home
+            p
+              | How to grow Tomatoes , Capsicum and Chilli in container at Home, Totally at Free of Cost.
+      .col-md-3.d-flex.ftco-animate
+        .blog-entry.align-self-stretch
+          a.block-20(href='https://www.youtube.com/watch?v=XUJ1PxztmSw' style="background-image: url('images/gardening4.jpeg');")
+          .text.mt-3
+            .meta.mb-2
+              div
+                a(href='#') Gardening
+              div
+                a(href='#') Tips and Tricks
+              div
+                a.meta-chat(href='#')
+                  span.icon-chat
+                  |  1
+            h3.heading
+              a(href='https://www.youtube.com/watch?v=XUJ1PxztmSw') Planting Flowers at Home
+            p Today awesome garden talk about how to grow Mogra from cutting
+.row
+  .col-md-12.text-center
+    p
+      // Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
+      | Copyright &copy;
+      script.
+        document.write(new Date().getFullYear());
+      |  All rights reserved | This template is made with 
+      i.icon-heart.text-danger(aria-hidden='true')
+      |  by 
+      a(href='https://colorlib.com' target='_blank') Colorlib
+      // Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
 // loader
 #ftco-loader.show.fullscreen
   svg.circular(width='48px' height='48px')
@@ -309,8 +348,20 @@ script(src='js/jquery.magnific-popup.min.js')
 script(src='js/aos.js')
 script(src='js/jquery.animateNumber.min.js')
 script(src='js/bootstrap-datepicker.js')
-script(src='js/jquery.timepicker.min.js')
 script(src='js/scrollax.min.js')
-script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false')
-script(src='js/google-map.js')
 script(src='js/main.js')
+script(src='js/bootstrap-show-modal.js')
+script(type='text/javascript').
+  $( document ).ready(function() {
+  if(#{loggedIn}){
+  document.getElementById("rclogin").style.display = "none";
+  document.getElementById("logusername").style.display = "block";
+  document.getElementById("logout").style.display = "block";
+  document.getElementById("logusername").innerText = "Welcome "+"#{usernm}";
+  }
+  else{
+  document.getElementById("rclogin").style.display = "block";
+  document.getElementById("logusername").style.display = "none";
+  document.getElementById("logout").style.display = "none";
+  }
+  });

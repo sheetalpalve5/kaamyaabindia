@@ -19,18 +19,18 @@
   },
   "homepage": "https://github.com/vanishreebhat/witfive/blob/master/README.md",
   "dependencies": {
+    "bcrypt": "^3.0.5",
     "body-parser": "^1.18.3",
     "dotenv": "^5.0.1",
-    "moment": "^2.22.1",
-    "bcrypt": "^3.0.5",
     "express": "^4.16.4",
-    "ibm_db": "^2.6.4",
     "express-session": "^1.15.6",
+    "ibm_db": "^2.6.4",
+    "morgan": "^1.9.1",
     "mysql": "^2.16.0",
+    "moment": "^2.22.1",
     "pug": "^2.0.3",
     "util.promisify": "^1.0.0",
-    "morgan": "^1.9.1",
-    "cookie-parser": "^1.4.4"
+    "cf-deployment-tracker-client": "^0.1.4"
   },
   "devDependencies": {
     "nodemon": "^1.18.10"
