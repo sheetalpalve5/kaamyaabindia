@@ -38,6 +38,21 @@ app.use(session({
     }
 }));
 
+var ibmdb = require('ibm_db');
+
+ibmdb.open("DATABASE=BLUDB;HOSTNAME=dashdb-txn-sbox-yp-lon02-02.services.eu-gb.bluemix.net;UID=qzm21635;PWD=92wzcpxxdmz9cw+c;PORT=50000;PROTOCOL=TCPIP", function (err,conn) {
+  if (err) return console.log(err);
+
+  conn.query('select 1 from sysibm.sysdummy1', function (err, data) {
+    if (err) console.log(err);
+    else console.log(data);
+
+    conn.close(function () {
+      console.log('done');
+    });
+  });
+});
+
 var checkUser=function(req,res,next){
   if(req.session.loggedIn){
     next();
