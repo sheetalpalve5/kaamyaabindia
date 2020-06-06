@@ -31,21 +31,25 @@
     
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="index.html"><img src="images/icon.jpeg" alt="Img" width="40" height="40">  KaamYaab India</a>
+	      <a class="navbar-brand" href="/home"><img src="images/icon.jpeg" alt="Img" width="40" height="40" style="margin-left:0px">  KaamYaab India</a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+	          <li class="nav-item active"><a href="/home" class="nav-link">Home</a></li>
 	          <li class="nav-item"><a href="/about" class="nav-link">About</a></li>
 	          <li class="nav-item"><a href="/training" class="nav-link">Trainings</a></li>
-            <li class="nav-item active"><a href="/blog" class="nav-link">Financial Options</a></li>
-            <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+            <li class="nav-item"><a href="/blog" class="nav-link">Finance</a></li>
+            <li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
+			<li class="nav-item"><a  href="/scraping" class="nav-link" id="naukri">External Jobs</a></li>
             <li class="nav-item cta mr-md-1"><a href="/loginpage" class="nav-link" id="rclogin">Login</a></li>
-                <li class="nav-item"><a href="#" class="nav-link" id="logusername" style="display:none;">Welcome #{user}</a></li>
+            <li class="nav-item cta mr-md-1"><a href="/jobpostpage" class="nav-link" style="display:none;" id="postjb">Post Job</a></li>
+                <li class="nav-item"><a href="#" class="nav-link" id="logusername" style="display:none;">#{usernm}</a></li>
                <li class="nav-item"><a  href="/logout" class="nav-link" id="logout" style="display:none;">Logout</a></li>
+			   <li class="nav-item cta mr-md-1"><a href="/ivr" class="nav-link" id="ivr">पंजीकरण</a></li>
+				
 	        </ul>
 	      </div>
 	    </div>
@@ -473,9 +477,9 @@
         <div class="row">
           <div class="col-md-12 text-center">
 
-            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
+            <p> Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
   Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. </p>
+   Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. </p>
           </div>
         </div>
       </div>
@@ -507,20 +511,24 @@
   <script src="js/bootstrap-show-modal.js"></script>
   <script type="text/javascript">
   var isLoggedIn=#{loggedIn};
-    $( document ).ready(function() {
-    isLoggedIn=#{loggedIn};
-    if(isLoggedIn){
-    document.getElementById("rclogin").style.display = "none";
-    document.getElementById("logusername").style.display = "block";
-    document.getElementById("logout").style.display = "block";
-    document.getElementById("logusername").innerText = "Welcome "+"#{usernm}";
-    }
-    else{
-    document.getElementById("rclogin").style.display = "block";
-    document.getElementById("logusername").style.display = "none";
-    document.getElementById("logout").style.display = "none";
-    }
-    });
+  $( document ).ready(function() {
+   isLoggedIn=#{loggedIn};
+   if(isLoggedIn>0){
+  document.getElementById("rclogin").style.display = "none";
+  document.getElementById("logusername").style.display = "block";
+  document.getElementById("logout").style.display = "block";
+  document.getElementById("logusername").innerText = "Welcome "+"#{usernm}";
+  if(isLoggedIn==2){
+  document.getElementById("postjb").style.display = "block";
+  }
+  }
+  else{
+  document.getElementById("rclogin").style.display = "block";
+  document.getElementById("logusername").style.display = "none";
+  document.getElementById("logout").style.display = "none";
+  document.getElementById("postjb").style.display = "none";
+  }
+  });
 
   </script>
   </body>

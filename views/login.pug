@@ -35,7 +35,7 @@ head
           input#submit.submit(type='submit' name='submit' value='Login')
       p.loginhere
         | Create an account
-        a#reg.loginhere-link(href='/compregister' )  Register
+        a#reg.loginhere-link(href='/compregister')  Register
 // JS
 script(type='text/javascript').
   var selected_user='recruiter';
@@ -46,11 +46,9 @@ script(type='text/javascript').
   selected_user=this.value;
   console.log('ch value', this.value);
   const $this = $(this), $link = $("#reg");
-
   $link.attr("href", $this.attr("data-url"));
   }
   });
-
   $( document ).ready(function() {
   if('#{message}'){
   document.getElementById("errmsg").style.display = "block";

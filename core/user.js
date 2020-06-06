@@ -17,9 +17,9 @@ User.prototype = {
         bind.push(user);
         
         // prepare the sql query
-        let sql = `SELECT CANDIDATE_REGISTRATION_NUMBER FROM LND_EMPLOYEE_REGISTRATION WHERE USER_NAME = ?`;
+        let sql = `SELECT * FROM LND_EMPLOYEE_REGISTRATION WHERE USER_NAME = ?`;
 
-console.log('User', user);
+        console.log('User', user);
         /*
         pool.query(sql, user, function(err, result) {
             if(err) throw err
@@ -60,6 +60,9 @@ console.log('User', user);
 
     find : function(user = null, callback)
     {
+        var bind = [];
+        bind.push(user);
+        
         // if the user variable is defind
         if(user) {
             // if user = number return field = id, if user = string return field = username.
@@ -68,7 +71,7 @@ console.log('User', user);
         // prepare the sql query
         let sql = `SELECT * FROM LND_EMPLOYEE_REGISTRATION WHERE ${field} = ?`;
 
-console.log('User', user);
+        console.log('User', user);
         /*
         pool.query(sql, user, function(err, result) {
             if(err) throw err
@@ -80,8 +83,7 @@ console.log('User', user);
             }
         });*/
         ibmdb.open(cn,function(err,conn){
-            conn.prepare(sql,
-            function (err, stmt) {
+            conn.prepare(sql,function (err, stmt) {
                 if (err) {
                     //could not prepare for some reason
                     console.log(err);
@@ -89,7 +91,7 @@ console.log('User', user);
                 }
         
                 //Bind and Execute the statment asynchronously
-                stmt.execute(user, function (err, result) {
+                stmt.execute(bind, function (err, result) {
                     if( err ) console.log(err);
                     else 
                     {
@@ -142,7 +144,7 @@ console.log('User', user);
                     {
                         console.log('user created');
                         let loc= body.prefloc;
-                        if(!loc){
+                        if (!loc){
                           loc=body.city;
                          }
                         job.userjobs(body.skills, loc, function(results) {

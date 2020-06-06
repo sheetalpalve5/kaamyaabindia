@@ -10,40 +10,41 @@ const user = new User();
 const comp = new Comp();
 const job = new Job();
 // Get the index page
-router.get('/', (req, res, next) => {
-    let user = req.session.user;
-    // If there is a session named user that means the use is logged in. so we redirect him to home page by using /home route below
-    if(user) {
-        res.render('index', {loggedIn:true, usernm: user.FIRST_NAME});
-        return;
-    }
-    // IF not we just send the index page.
-    res.render('index', {loggedIn:false, usernm: null});
+router.get('/home', (req, res, next) => {
+ let logg=0;
+let usr=null;
+let rws=[];
+if(req.session.user){
+    logg=req.session.loggedIn;
+    usr=req.session.user.USER_NAME;
+    rws=req.session.rows;
+}
+    res.render('index', {loggedIn:logg, usernm:usr, rows:rws});
 })
 router.get('/training',(req, res, next) => {
-let logg=false;
+let logg=0;
 let usr=null;
 if(req.session.user){
-    logg=true;
-    usr=req.session.user.FIRST_NAME;
+    logg=req.session.loggedIn;
+    usr=req.session.user.USER_NAME;
 }
 res.render('Trainings', {loggedIn:logg, usernm:usr});
 });
 router.get('/about',(req, res, next) => {
-let logg=false;
+let logg=0;
 let usr=null;
 if(req.session.user){
-    logg=true;
-    usr=req.session.user.FIRST_NAME;
+    logg=req.session.loggedIn;
+    usr=req.session.user.USER_NAME;
 }
 res.render('about', {loggedIn:logg, usernm:usr});
 });
 router.get('/contact',(req, res, next) => {
-let logg=false;
+let logg=0;
 let usr=null;
 if(req.session.user){
-    logg=true;
-    usr=req.session.user.FIRST_NAME;
+    logg=req.session.loggedIn;
+    usr=req.session.user.USER_NAME;
 }
 res.render('contact', {loggedIn:logg, usernm:usr});
 });
@@ -54,21 +55,21 @@ res.render('login');
 });
 
 router.get('/jobpostpage', (req, res, next) => {
-let logg=false;
+let logg=0;
 let usr=null;
 if(req.session.user){
-    logg=true;
-    usr=req.session.user.FIRST_NAME;
+    logg=req.session.loggedIn;
+    usr=req.session.user.USER_NAME;
     }
     res.render('jobpost',{loggedIn:logg, usernm: usr});
     });
 
 router.get('/blog', (req, res, next) => {
-let logg=false;
+let logg=0;
 let usr=null;
 if(req.session.user){
-    logg=true;
-    usr=req.session.user.FIRST_NAME;
+    logg=req.session.loggedIn;
+    usr=req.session.user.USER_NAME;
 }
     res.render('blog', {loggedIn:logg, usernm:usr});
     });
@@ -87,8 +88,10 @@ router.post('/loginaction', (req, res, next) => {
         if(usr) {
             // Get the user data by it's id. and store it in a session.
                 req.session.user = usr;
+                req.session.loggedIn = 2;
                 req.session.opp = 0;
-                res.render('index', {loggedIn:true, usernm: usr.CONTACT_PERSON_FIRST_NAME,rows:result});
+                req.session.rows=result;
+                res.render('index', {loggedIn:2, usernm: usr.USER_NAME,rows:result});
                 next();
 
         }else {
@@ -105,9 +108,14 @@ router.post('/loginaction', (req, res, next) => {
             // Store the user data in a session.
             req.session.user = usr;
             req.session.opp = 1;
+            req.session.loggedIn = 1;
+            if(!result){
+            result=[]
+            }
+            req.session.rows=result;
             // redirect the user to the home page.
 //            res.setHeader('Content-Type', 'text/html');
-            res.render('index', {loggedIn:true, usernm: usr.FIRST_NAME,rows:result});
+            res.render('index', {loggedIn:req.session.loggedIn, usernm: usr.USER_NAME,rows:result});
             next();
         }else {
             // if the login function returns null send this error message back to the user.
@@ -145,23 +153,15 @@ router.post('/registercomp', (req, res, next) => {
         zip: req.body.zip,
         ctype: req.body.optradio
     };
-
-    // call create function. to create a new user. if there is no error this function will return it's id.
-    comp.create(compInput, function(lastId, results) {
-        // if the creation of the user goes well we should get an integer (id of the inserted user)
-        if(lastId) {
+ // call create function. to create a new user. if there is no error this function will return it's id.
+   comp.create(compInput, function(results) {
             // Get the user data by it's id. and store it in a session.
-            comp.find(lastId, function(result) {
+            comp.find(compInput.username, function(result) {
                 req.session.user = result;
                 req.session.opp = 0;
-                console.log('lastid', lastId);
                 console.log('comp', result)
-                res.render('index', {loggedIn:true, usernm: req.body.firstname,rows: results});
+                res.render('index', {loggedIn:2, usernm: req.body.firstname,rows: results});
             });
-
-        }else {
-            console.log('An error occurred in registration ...');
-        }
     });
 
 });
@@ -198,13 +198,16 @@ router.post('/registeremployee', (req, res, next) => {
             // Get the user data by it's id. and store it in a session.
             user.findusername(userInput.username, function(result) {
                 req.session.user = result;
+                req.session.rows = results;
+                req.session.loggedIn = 1;
                 req.session.opp = 0;
-                res.render('index', {loggedIn:true, usernm: req.body.firstname, rows: results});
+                res.render('index', {loggedIn:1, usernm: req.body.firstname, rows: results});
             });
     });
-
 });
-
+router.get('/scraping', (req,res, next) =>{
+res.render('autocomplete');
+});
 router.get('/applyjob/:id', (req,res,next) => {
 var id = req.params.id;     //req.query.id;
 console.log('id: ', id);
@@ -227,31 +230,25 @@ router.post('/addjob', (req, res, next) =>{
         salary: req.body.salary
     };
     // call create function. to create a new user. if there is no error this function will return it's id.
-    job.create(jobInput, function(lastId, results) {
+    job.create(jobInput, function(results) {
         console.log('first step');
-        // if the creation of the user goes well we should get an integer (id of the inserted user)
-        if(lastId) {
             // Get the user data by it's id. and store it in a session.
-            job.find(lastId, function(result) {
-                res.render('index', {loggedIn:true, message:'job created'});
+            job.find(jobInput.corpname, function(result) {
+                res.render('index', {loggedIn:2, usernm:req.session.user, rows:req.session.rows});
             });
-
-        }else {
-            console.log('Error creating a new user ...');
-        }
     });
-
-});
+    });
 
 // Get loggout page
 router.get('/logout', (req, res, next) => {
     // Check if the session exist
     if(req.session.user) {
-        req.session.loggedIn=false;
+        req.session.loggedIn=0;
         req.session.user =null;
+        req.session.rows=null;
         // destroy the session and redirect the user to the index page.
         req.session.destroy(function() {
-            res.redirect('/');
+            res.render('index', {loggedIn:0, usernm:null, rows:[]});
         });
     }
 });

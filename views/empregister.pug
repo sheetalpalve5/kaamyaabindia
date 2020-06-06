@@ -74,7 +74,7 @@ head
                   | Female
                 label.radio-inline
                   input(type='radio' name='optradio' value='T')
-                  | Transgender
+                  | Other
               .form-row
                 .form-holder.form-holder-2
                   select#mstatus.form-control(name='mstatus')
@@ -106,10 +106,10 @@ head
                 .form-holder.form-holder-1
                   input#skills.form-control(type='text' name='skills' placeholder='Enter your skills' required='')
               label.radio-inline
-                input(type='radio' name='pref' checked='')
+                input(type='radio' name='pref' checked='' value='Part time')
                 | Part time
               label.radio-inline
-                input(type='radio' name='pref')
+                input(type='radio' name='pref' value='Full time')
                 | Full time
               .form-row
                 .form-holder(style='margin-top:7px')

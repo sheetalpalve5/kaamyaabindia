@@ -19,7 +19,7 @@ head
   link(rel='stylesheet' href='css/bootstrap/bootstrap.min.css')
 nav#ftco-navbar.navbar.navbar-expand-lg.navbar-dark.ftco_navbar.bg-dark.ftco-navbar-light
   .container
-    a.navbar-brand(href='index.html')
+    a.navbar-brand(href='/home')
       img(src='images/icon.jpeg' alt='Img' width='40' height='40')
       |   KaamYaab India
     button.navbar-toggler(type='button' data-toggle='collapse' data-target='#ftco-nav' aria-controls='ftco-nav' aria-expanded='false' aria-label='Toggle navigation')
@@ -27,24 +27,28 @@ nav#ftco-navbar.navbar.navbar-expand-lg.navbar-dark.ftco_navbar.bg-dark.ftco-nav
       |  Menu
     #ftco-nav.collapse.navbar-collapse
       ul.navbar-nav.ml-auto
-        li.nav-item
-          a.nav-link(href='/') Home
+        li.nav-item.active
+          a.nav-link(href='/home') Home
         li.nav-item
           a.nav-link(href='/about') About
         li.nav-item
           a.nav-link(href='/training') Trainings
-        li.nav-item.active
-          a.nav-link(href='/blog') Financial Options
         li.nav-item
-          a.nav-link(href='contact.html') Contact
+          a.nav-link(href='/blog') Finance
+        li.nav-item
+          a.nav-link(href='/contact') Contact
+        li.nav-item
+          a#naukri.nav-link(href='/scraping') External Jobs
         li.nav-item.cta.mr-md-1
           a#rclogin.nav-link(href='/loginpage') Login
         li.nav-item.cta.mr-md-1
-          a#rclogin.nav-link(href='/jobpostpage') Post A Job
+          a#postjb.nav-link(href='/jobpostpage' style='display:none;') Post Job
         li.nav-item
-          a#logusername.nav-link(href='#' style='display:none;') Welcome #{user}
+          a#logusername.nav-link(href='#' style='display:none;') #{usernm}
         li.nav-item
           a#logout.nav-link(href='/logout' style='display:none;') Logout
+        li.nav-item.cta.mr-md-1
+          a#ivr.nav-link(href='/ivr') &#x92A;&#x902;&#x91C;&#x940;&#x915;&#x930;&#x923;
 // END nav
 .hero-wrap.js-fullheight(style="background-image: url('images/image_9.jpg');" data-stellar-background-ratio='0.5')
   .overlay
@@ -54,7 +58,7 @@ nav#ftco-navbar.navbar.navbar-expand-lg.navbar-dark.ftco_navbar.bg-dark.ftco-nav
         p.breadcrumbs(data-scrollax="properties: { translateY: '30%', opacity: 1.6 }")
           span.mr-3
             a(href='index.html')
-              | Home 
+              | Home
               i.ion-ios-arrow-forward
           span Seek Finance Help
         h1.mb-3.bread(data-scrollax="properties: { translateY: '30%', opacity: 1.6 }") Seek Finance Help
@@ -267,9 +271,9 @@ section.ftco-section.bg-light
   </div>
   <div class="row">
   <div class="col-md-12 text-center">
-  <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
+  <p> Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
   Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.</p>
+  Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.</p>
   </div>
   </div>
   </div>
@@ -301,15 +305,19 @@ script(type='text/javascript').
   var isLoggedIn=#{loggedIn};
   $( document ).ready(function() {
   isLoggedIn=#{loggedIn};
-  if(isLoggedIn){
+  if(isLoggedIn>0){
   document.getElementById("rclogin").style.display = "none";
   document.getElementById("logusername").style.display = "block";
   document.getElementById("logout").style.display = "block";
   document.getElementById("logusername").innerText = "Welcome "+"#{usernm}";
+  if(isLoggedIn==2){
+  document.getElementById("postjb").style.display = "block";
+  }
   }
   else{
   document.getElementById("rclogin").style.display = "block";
   document.getElementById("logusername").style.display = "none";
   document.getElementById("logout").style.display = "none";
+  document.getElementById("postjb").style.display = "none";
   }
   });

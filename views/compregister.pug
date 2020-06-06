@@ -72,7 +72,7 @@ head
                   | Female
                 label.radio-inline
                   input(type='radio' name='optradio')
-                  | Trans
+                  | Other
           // SECTION 2
           h2
             p.step-icon
@@ -115,21 +115,6 @@ head
                     legend Organization PAN
                     input#orgpan.form-control(type='text' name='orgpan' placeholder='Organization PAN' required='')
           // SECTION 3
-          h2
-            p.step-icon
-              span 03
-            span.step-text Verfication
-          section
-            .inner
-              .wizard-header
-                h3.heading Verfication
-                p
-                  | Please enter the OTP you received on your mobile and proceed to set login credentials
-              .form-row
-                .form-holder.form-holder-1
-                  input#find_bank.form-control(type='number' name='find_bank' placeholder='Enter OTP' required='')
-              .form-row-total
-          // SECTION 4
           h2
             p.step-icon
               span 04

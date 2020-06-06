@@ -30,30 +30,37 @@ head
   meta(http-equiv='Content-Type' content='text/html; charset=utf-8')
 nav#ftco-navbar.navbar.navbar-expand-lg.navbar-dark.ftco_navbar.bg-dark.ftco-navbar-light
   .container
-    a.navbar-brand(href='index.html')
+    a.navbar-brand(href='/home')
       img(src='images/icon.jpeg' alt='Img' width='40' height='40')
       |   KaamYaab India
     button.navbar-toggler(type='button' data-toggle='collapse' data-target='#ftco-nav' aria-controls='ftco-nav' aria-expanded='false' aria-label='Toggle navigation')
       span.oi.oi-menu
       |  Menu
     #ftco-nav.collapse.navbar-collapse
-      ul.navbar-nav.ml-auto
-        li.nav-item
-          a.nav-link(href='/') Home
+      uul.navbar-nav.ml-auto
+        li.nav-item.active
+          a.nav-link(href='/home') Home
         li.nav-item
           a.nav-link(href='/about') About
         li.nav-item
           a.nav-link(href='/training') Trainings
         li.nav-item
-          a.nav-link(href='/blog') Financial Options
+          a.nav-link(href='/blog') Finance
         li.nav-item
-          a.nav-link(href='contact.html') Contact
+          a.nav-link(href='/contact') Contact
+        li.nav-item
+          a#naukri.nav-link(href='/scraping') External Jobs
         li.nav-item.cta.mr-md-1
           a#rclogin.nav-link(href='/loginpage') Login
+        li.nav-item.cta.mr-md-1
+          a#postjb.nav-link(href='/jobpostpage' style='display:none;') Post Job
         li.nav-item
-          a#logusername.nav-link(href='#' style='display:none;') Welcome #{user}
+          a#logusername.nav-link(href='#' style='display:none;') #{usernm}
         li.nav-item
           a#logout.nav-link(href='/logout' style='display:none;') Logout
+        li.nav-item.cta.mr-md-1
+          a#ivr.nav-link(href='/ivr') &#x92A;&#x902;&#x91C;&#x940;&#x915;&#x930;&#x923;
+// END nav
 .page-content
   .form-v1-content
     .wizard-form
@@ -156,18 +163,25 @@ script(src='js/main.js')
 script(src='js/bootstrap-show-modal.js')
 script(type='text/javascript').
   var isLoggedIn=#{loggedIn};
-  document.addEventListener('DOMContentLoaded', function() {
+  $( document ).ready(function() {
   isLoggedIn=#{loggedIn};
-  if(isLoggedIn){
+  if(isLoggedIn>0){
   document.getElementById("rclogin").style.display = "none";
   document.getElementById("logusername").style.display = "block";
   document.getElementById("logout").style.display = "block";
-  document.getElementById("logusername").innerText = "Welcome "+"#{usernm}";
+  document.getElementById("logusername").innerText = "#{usernm}";
+  document.getElementById("ivr").style.display = "none";
+  if(isLoggedIn==2){
+  document.getElementById("postjb").style.display = "block";
+  }
   }
   else{
   document.getElementById("rclogin").style.display = "block";
   document.getElementById("logusername").style.display = "none";
   document.getElementById("logout").style.display = "none";
+  document.getElementById("postjb").style.display = "none";
+  document.getElementById("ivr").style.display = "block";
+
   }
   });
 // This templates was made by Colorlib (https://colorlib.com)
