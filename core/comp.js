@@ -1,9 +1,9 @@
 const pool = require('./pool');
 const bcrypt = require('bcrypt');
 const Job = require('./job');
-const cn = "DATABASE=BLUDB;HOSTNAME=dashdb-txn-sbox-yp-lon02-02.services.eu-gb.bluemix.net;UID=qzm21635;PWD=92wzcpxxdmz9cw+c;PORT=50000;PROTOCOL=TCPIP"; 
+
 const job = new Job();
- var ibmdb = require("ibm_db");
+
 function Comp() {};
 
 Comp.prototype = {
@@ -19,8 +19,7 @@ Comp.prototype = {
         let sql = `SELECT * FROM LND_COMPANY_REGISTRATION WHERE ${field} = ?`;
 
 //console.log('Comp', comp);
-        
-        /*pool.query(sql, comp, function(err, result) {
+        pool.query(sql, comp, function(err, result) {
             if(err) throw err
 
             if(result.length) {
@@ -29,36 +28,6 @@ Comp.prototype = {
                 callback(null);
             }
         });
-        */
-       var bind = [];
-       // loop in the attributes of the object and push the values into the bind array.
-       for(prop in comp){
-           bind.push(comp[prop]);
-       }
-       ibmdb.open(cn,function(err,conn){
-        conn.prepare(sql,function (err, stmt) {
-            if (err) {
-                //could not prepare for some reason
-                console.log(err);
-                return conn.closeSync();
-            }
-    
-            //Bind and Execute the statment asynchronously
-            stmt.execute(bind, function (err, result) {
-                if( err ) console.log(err);
-                else 
-                {
-                    if(result.length) {
-                        callback(result[0]);
-                    }else {
-                        callback(null);
-                    }
-                }
-                //Close the connection
-                conn.close(function(err){});
-            });
-        });
-        }); 
     },
 
     // This function will insert data into the database. (create a new comp)
@@ -81,38 +50,8 @@ Comp.prototype = {
         CONTACT_PERSON_FIRST_NAME, CONTACT_PERSON_LAST_NAME, COMPANY_PAN_CARD, COMPANY_AADHAR_NUMBER, CONTACT_NUMBER,
         ADDRESS, CITY, STATE, ZIP_CODE, COMPANY_TYPE) VALUES
         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
-        ibmdb.open(cn,function(err,conn){
-            conn.prepare(sql,
-            function (err, stmt) {
-                if (err) {
-                    //could not prepare for some reason
-                    console.log(err);
-                    return conn.closeSync();
-                }
-        
-                //Bind and Execute the statment asynchronously
-                stmt.execute(bind, function (err, result) {
-                    if( err ) console.log(err);
-                    else 
-                    {
-                        console.log('Your Registration is Complete!');
-                    job.compjobs(body.username, function(results) {
-                    if(results) {
-                            callback(results);
-                            }
-                            else{
-                            callback(null);
-                            }
-                            });
-                            }
-                    //Close the connection
-                    conn.close(function(err){});
-                });
-            });
-            }); 
-
         // call the query give it the sql string and the values (bind array)
-       /* pool.query(sql, bind, function(err, result) {
+        pool.query(sql, bind, function(err, result) {
             if(err) throw err;
             // return the last inserted id. if there is no error
             console.log('Your Registration is Complete!');
@@ -124,10 +63,8 @@ Comp.prototype = {
             callback(result.insertId, null);
             }
             });
-         
-        });
-       */ 
 
+        });
     },
 
     login : function(username, password, callback)
@@ -156,6 +93,6 @@ Comp.prototype = {
 
     }
 
-};
+}
 
 module.exports = Comp;

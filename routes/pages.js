@@ -87,11 +87,12 @@ router.post('/loginaction', (req, res, next) => {
     comp.login(req.body.email, req.body.pass, function(usr,result){
         if(usr) {
             // Get the user data by it's id. and store it in a session.
+            console.log('Jobs: ', result);
                 req.session.user = usr;
                 req.session.loggedIn = 2;
                 req.session.opp = 0;
                 req.session.rows=result;
-                res.render('index', {loggedIn:2, usernm: usr.USER_NAME,rows:result});
+                res.render('index1', {loggedIn:2, usernm: usr.USER_NAME,rows:result});
                 next();
 
         }else {
@@ -138,30 +139,39 @@ router.post('/registercomp', (req, res, next) => {
     // prepare an object containing all user inputs.
     console.log('Entered register company');
     let compInput = {
-        corporatename: req.body.org_name,
-        username: req.body.username,
-        password: req.body.password,
-        email: req.body.your_email,
-        firstname: req.body.firstname,
-        lastname: req.body.lastname,
-        pan: req.body.orgpan,
-        adh: req.body.aadhar,
-        phone: req.body.phone,
-        address: req.body.address,
-        city: req.body.city2,
-        state: req.body.stt,
-        zip: req.body.zip,
-        ctype: req.body.optradio
+        corporatename: req.body.org_name.trim(),
+        username: req.body.username.trim(),
+        password: req.body.password.trim(),
+        email: req.body.your_email.trim(),
+        firstname: req.body.firstname.trim(),
+        lastname: req.body.lastname.trim(),
+        pan: req.body.orgpan.trim(),
+        adh: req.body.aadhar.trim(),
+        phone: req.body.phone.trim(),
+        address: req.body.address.trim(),
+        city: req.body.city2.trim(),
+        state: req.body.stt.trim(),
+        zip: req.body.zip.trim(),
+        ctype: req.body.optradio.trim()
     };
- // call create function. to create a new user. if there is no error this function will return it's id.
-   comp.create(compInput, function(results) {
+
+    // call create function. to create a new user. if there is no error this function will return it's id.
+    comp.create(compInput, function(lastId, results) {
+        // if the creation of the user goes well we should get an integer (id of the inserted user)
+        if(lastId) {
             // Get the user data by it's id. and store it in a session.
-            comp.find(compInput.username, function(result) {
+            comp.find(lastId, function(result) {
                 req.session.user = result;
+                req.session.loggedIn = 2
                 req.session.opp = 0;
+                console.log('lastid', lastId);
                 console.log('comp', result)
-                res.render('index', {loggedIn:2, usernm: req.body.firstname,rows: results});
+                res.render('index1', {loggedIn:req.session.loggedIn, usernm: req.body.username,rows: results});
             });
+
+        }else {
+            console.log('An error occurred in registration ...');
+        }
     });
 
 });
@@ -171,39 +181,48 @@ router.post('/registeremployee', (req, res, next) => {
     // prepare an object containing all user inputs.
     console.log('Entered register employee');
     let userInput = {
-        firstname: req.body.firstname,
-        lastname: req.body.lastname,
-        username: req.body.username,
-        password: req.body.password,
-        email: req.body.uemail,
-        gender: req.body.optradio,
-        status: req.body.mstatus,
-        langs: req.body.langs,
-        educ: req.body.educ,
-        skills: req.body.skills,
-        adh: req.body.adh,
-        phone: req.body.phone,
-        dob: req.body.dob,
-        address: req.body.address,
-        city: req.body.city2,
-        state: req.body.stt,
-        zip: req.body.zip,
-        expc: req.body.expc,
-        pref: req.body.pref,
-        prefloc: req.body.city1
+        firstname: req.body.firstname.trim(),
+        lastname: req.body.lastname.trim(),
+        username: req.body.username.trim(),
+        password: req.body.password.trim(),
+        email: req.body.uemail.trim(),
+        gender: req.body.optradio.trim(),
+        status: req.body.mstatus.trim(),
+        langs: req.body.langs.trim(),
+        educ: req.body.educ.trim(),
+        skills: req.body.skills.trim(),
+        adh: req.body.adh.trim(),
+        phone: req.body.phone.trim(),
+        dob: req.body.dob.trim(),
+        address: req.body.address.trim(),
+        city: req.body.city2.trim(),
+        state: req.body.stt.trim(),
+        zip: req.body.zip.trim(),
+        expc: req.body.expc.trim(),
+        pref: req.body.pref.trim(),
+        prefloc: req.body.city1.trim()
     };
     // call create function. to create a new user. if there is no error this function will return it's id.
-    user.create(userInput, function(results) {
+    user.create(userInput, function(lastId, results) {
         // if the creation of the user goes well we should get an integer (id of the inserted user)
+        if(lastId) {
             // Get the user data by it's id. and store it in a session.
-            user.findusername(userInput.username, function(result) {
+            user.find(lastId, function(result) {
                 req.session.user = result;
-                req.session.rows = results;
                 req.session.loggedIn = 1;
                 req.session.opp = 0;
-                res.render('index', {loggedIn:1, usernm: req.body.firstname, rows: results});
+                if(!results){
+                results = [];
+                }
+                req.session.rows=results;
+                res.render('index', {loggedIn:req.session.loggedIn, usernm: req.body.username, rows: results});
             });
+
+        }else {
+            console.log('Error creating a new user ...');
+        }
     });
+
 });
 router.get('/scraping', (req,res, next) =>{
 res.render('autocomplete');
@@ -217,27 +236,39 @@ console.log('id: ', id);
 
 router.post('/addjob', (req, res, next) =>{
    let jobInput = {
-        name: req.body.corpname,
-        desc: req.body.desc,
-        skills: req.body.skills,
-        expr: req.body.expr,
-        phone: req.body.phone,
-        pref: req.body.pref,
-        city: req.body.city,
-        state: req.body.state,
-        positions: req.body.positions,
-        expiry: req.body.expiry,
-        salary: req.body.salary
+        name: req.body.corpname.trim(),
+        desc: req.body.desc.trim(),
+        skills: req.body.skills.trim(),
+        expr: req.body.expr.trim(),
+        phone: req.body.phone.trim(),
+        pref: req.body.pref.trim(),
+        city: req.body.city.trim(),
+        state: req.body.state.trim(),
+        positions: req.body.positions.trim(),
+        expiry: req.body.expiry.trim(),
+        salary: req.body.salary.trim(),
+        comp_reg_key: req.session.user.COMPANY_REGISTRATION_NUMBER
     };
     // call create function. to create a new user. if there is no error this function will return it's id.
-    job.create(jobInput, function(results) {
+    job.create(jobInput, function(lastId, results) {
         console.log('first step');
+        let rws=[];
+        // if the creation of the user goes well we should get an integer (id of the inserted user)
+        if(lastId) {
+            if(req.session.rows){
+            rws=req.session.rows;
+            }
             // Get the user data by it's id. and store it in a session.
-            job.find(jobInput.corpname, function(result) {
-                res.render('index', {loggedIn:2, usernm:req.session.user, rows:req.session.rows});
+            job.find(lastId, function(result) {
+                res.render('index', {loggedIn:2, usernm:req.session.user.USER_NAME,rows:rws});
             });
+
+        }else {
+            console.log('Error creating a new user ...');
+        }
     });
-    });
+
+});
 
 // Get loggout page
 router.get('/logout', (req, res, next) => {
